@@ -549,7 +549,7 @@ void CCPConfigWidget::saveCCPConfigData()
     ScQt_IniFileDataBaseWriteYesNo (Section, "Debug", ccpconfig_data->DebugFlag, Fd);
     ccpconfig_data->CCPVersionString = ui->comboBoxProtocolVersion->currentText();
     ScQt_IniFileDataBaseWriteString (Section, "Protocol Version", ccpconfig_data->CCPVersionString, Fd);
-    ccpconfig_data->ByteOrderString, ui->comboBoxByteOrder->currentText();
+    ccpconfig_data->ByteOrderString = ui->comboBoxByteOrder->currentText();
     ScQt_IniFileDataBaseWriteString (Section, "ByteOrder", ccpconfig_data->ByteOrderString, Fd);
     ccpconfig_data->Channel = ui->comboBoxChannel->currentIndex();
     ScQt_IniFileDataBaseWriteInt (Section, "Channel", ccpconfig_data->Channel, Fd);
