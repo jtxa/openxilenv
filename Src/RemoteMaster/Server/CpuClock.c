@@ -15,6 +15,7 @@
  */
 
 
+#include <inttypes.h>
 #include <stdint.h>
 #include <stdio.h>
 #include <time.h>
@@ -59,7 +60,7 @@ void CalibrateCpuTicks(void)
     TicksPerMicroSec = (uint64_t)(TicksPerNanoSec * 1000.0);
     TicksPerSec = (uint64_t)(TicksPerNanoSec * 1000000000.0);
 
-    printf("\nCPU Clock = %f GHz (%u)\n", TicksPerNanoSec, TicksPerSec);
+    printf("\nCPU Clock = %f GHz (%"PRIu64")\n", TicksPerNanoSec, TicksPerSec);
 }
 
 uint64_t GetCpuFrquency(void)

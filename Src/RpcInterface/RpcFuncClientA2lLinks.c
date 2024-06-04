@@ -16,6 +16,7 @@
 
 
 #include "Platform.h"
+#include <inttypes.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
@@ -305,10 +306,10 @@ static int ConvertToString(A2L_SINGLE_VALUE *Value, char *ret_Value, int MaxLen)
     if (Value == NULL) return 0;
     switch(Value->Type) {
     case A2L_ELEM_TYPE_INT:
-        sprintf (Help, "%lli", Value->Value.Int);
+        sprintf (Help, "%"PRIi64, Value->Value.Int);
         return StringCopy(ret_Value, Help, MaxLen);
     case A2L_ELEM_TYPE_UINT:
-        sprintf (Help, "%llu", Value->Value.Uint);
+        sprintf (Help, "%"PRIu64, Value->Value.Uint);
         return StringCopy(ret_Value, Help, MaxLen);
     case A2L_ELEM_TYPE_DOUBLE:
     case A2L_ELEM_TYPE_PHYS_DOUBLE:
@@ -650,10 +651,10 @@ static void PrintSingleValue(A2L_SINGLE_VALUE *par_Value)
 {
     switch (par_Value->Type) {
     case A2L_ELEM_TYPE_INT:
-        printf("%lli", par_Value->Value.Int);
+        printf("%"PRIi64, par_Value->Value.Int);
         break;
     case A2L_ELEM_TYPE_UINT:
-        printf("%llu", par_Value->Value.Uint);
+        printf("%"PRIu64, par_Value->Value.Uint);
         break;
     case A2L_ELEM_TYPE_DOUBLE:
         printf("%f", par_Value->Value.Double);
