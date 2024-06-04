@@ -16,15 +16,16 @@
 
 
 #define _GNU_SOURCE
+#include <inttypes.h>
 #include <stdint.h>
-#include<stdio.h>
-#include<string.h>    //strlen
-#include<stdlib.h>    //strlen
-#include<sys/socket.h>
-#include<arpa/inet.h> //inet_addr
-#include<unistd.h>    //write
-#include<pthread.h> //for threading , link with lpthread
-#include<signal.h>
+#include <stdio.h>
+#include <string.h>    //strlen
+#include <stdlib.h>    //strlen
+#include <sys/socket.h>
+#include <arpa/inet.h> //inet_addr
+#include <unistd.h>    //write
+#include <pthread.h> //for threading , link with lpthread
+#include <signal.h>
 #include <unistd.h>
 #include <sys/syscall.h>
 #include <sys/types.h>
@@ -134,7 +135,7 @@ void *connection_handler(void *socket_desc)
 
 #ifdef LOG_REMOTE_MASTER_CALL
 			if (fh != NULL) {
-				fprintf(fh, "%llu (%i/%i) %i: %i %i %i %i\n", my_rdtsc(), ((RM_PACKAGE_HEADER*)receive_buffer)->ChannelNumber, ((RM_PACKAGE_HEADER*)receive_buffer)->PackageCounter, ((RM_PACKAGE_HEADER*)receive_buffer)->Command, ((RM_PACKAGE_HEADER*)receive_buffer)->SizeOf, receive_message_size, transmit_message_size, len);
+				fprintf(fh, "%"PRIu64" (%i/%i) %i: %i %i %i %i\n", my_rdtsc(), ((RM_PACKAGE_HEADER*)receive_buffer)->ChannelNumber, ((RM_PACKAGE_HEADER*)receive_buffer)->PackageCounter, ((RM_PACKAGE_HEADER*)receive_buffer)->Command, ((RM_PACKAGE_HEADER*)receive_buffer)->SizeOf, receive_message_size, transmit_message_size, len);
 				fflush(fh);
 			}
 #endif
