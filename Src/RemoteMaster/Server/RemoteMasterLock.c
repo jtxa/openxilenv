@@ -15,6 +15,7 @@
  */
 
 #define _GNU_SOURCE
+#include <inttypes.h>
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -52,7 +53,7 @@ void RemoteMasterLock(REMOTE_MASTER_LOCK *Lock, int LineNr, const char *File)
 	if (diff > Lock->MaxWaitTime) {
 		Lock->MaxWaitTime = diff;
 		if (diff > 30000) {
-            printf("max mait time = %llu %s(%i)\n", Lock->MaxWaitTime, File, LineNr);
+            printf("max mait time = %"PRIu64" %s(%i)\n", Lock->MaxWaitTime, File, LineNr);
 		}
 	}
 	Lock->DebugLineNr = LineNr;
