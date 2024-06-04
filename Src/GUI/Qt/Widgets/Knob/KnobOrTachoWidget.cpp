@@ -1348,8 +1348,6 @@ double KnobOrTachoWidget::PaintRoundScale(QPainter &Painter, int par_Width, int 
         pixel_first_line += pixel_per_line;
         x++;
     }
-    maxLabelSize = maxLabelSize;
-    maxLabelSizey = maxLabelSizey;
 
     //new calculation of Radius with the know of label length and heigh
     double circlewidth = par_Width - (2 * maxLabelSize) - (3 * LONGSCALE);
@@ -1540,7 +1538,6 @@ void KnobOrTachoWidget::PaintLinearSlopeScale(QPainter &Painter, int par_Width, 
         pixel_first_line += pixel_per_line;
         x++;
     }
-    maxLabelSize + 17;
     value_first_text = savevalue_first_text;
     pixel_first_line = savepixel_first_line;
 
