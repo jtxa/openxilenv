@@ -1277,7 +1277,7 @@ public:
     int SetSectionWriteCallibrationDataBackToExeFile (EXTERN_PROCESS_TASK_INFOS_STRUCT *TaskInfos, char *SelectedSection)
     {
         ShouldExtarctCopyBackExe = 1;
-        if ((TaskInfos->DllName != NULL) && (strlen(TaskInfos->DllName))) {
+        if (strlen(TaskInfos->DllName)) {
             if ((TaskInfos->Number >= 0) && (TaskInfos->Number < 8)) {
                 return write_section_to_exe_file_after_terminate (TaskInfos->DllName, SelectedSection, Dlls[TaskInfos->Number].Target, Dlls[TaskInfos->Number].Temp,
                                                                   (unsigned long long)TaskInfos->DllBaseAddress);
