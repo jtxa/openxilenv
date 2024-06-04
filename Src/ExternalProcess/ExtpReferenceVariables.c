@@ -69,7 +69,7 @@ static void XilEnvInternal_referece_error(EXTERN_PROCESS_TASK_INFOS_STRUCT *Task
     default: i = 13; break;
     }
     if (!OkToAllFlags[i]) {
-        sprintf(txt, "cannot reference variable %s: because (%li)-> %s\n continue?", name, vid, errstr[i]);
+        sprintf(txt, "cannot reference variable %s: because (%i)-> %s\n continue?", name, vid, errstr[i]);
         // ERROR_OK_OKALL_CANCEL     8
         ret = XilEnvInternal_PipeErrorPopupMessageAndWait(TaskInfo, 8, txt);
         if (ret == 2) {   // Cancle == 2
@@ -1623,7 +1623,7 @@ int XilEnvInternal_DereferenceVariable (void *ptr, int vid)
     TaskInfo = XilEnvInternal_GetTaskPtr ();
     Ret = XilEnvInternal_RemoveVariableFromCopyLists (TaskInfo, NULL, vid, ptr, &Dir, &DataType, NULL, NULL, &UniqueId);
     if (Ret < 0) {
-        ThrowError (1, "dereference unknown variable vid = %li address = %p", vid, ptr);
+        ThrowError (1, "dereference unknown variable vid = %i address = %p", vid, ptr);
     } else if (Ret > 0) {
         Ret = XilEnvInternal_PipeRemoveBlackboardVariable (TaskInfo, vid, Dir, DataType, (unsigned long long)ptr, UniqueId);
     }

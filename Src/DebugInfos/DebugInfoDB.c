@@ -945,14 +945,14 @@ char *insert_symbol (const char *symbol, DEBUG_INFOS_DATA *pappldata)
         if ((pappldata->symbol_buffer_entrys + 1) >= pappldata->size_symbol_buffer) {
             pappldata->size_symbol_buffer += 64;
             if ((pappldata->symbol_buffer =(struct SYMBOL_BUFFER*)my_realloc (pappldata->symbol_buffer, sizeof (struct SYMBOL_BUFFER) * pappldata->size_symbol_buffer)) == NULL) {
-                ThrowError (1, "out of memory, cannot load debug infos for process \"%s\" (%s %li)", pappldata->ExecutableFileName, __FILE__, (int32_t)__LINE__);
+                ThrowError (1, "out of memory, cannot load debug infos for process \"%s\" (%s %"PRIu32")", pappldata->ExecutableFileName, __FILE__, (uint32_t)__LINE__);
                 return NULL;
             }
         }
         pappldata->symbol_buffer_entrys++;
         pappldata->symbol_buffer_active_entry++; // This must be one less to symbol_buffer_entrys
         if ((pappldata->symbol_buffer[pappldata->symbol_buffer_active_entry].symbol_name_list =(char*)my_malloc (sizeof (char) * 1024 * 1024)) == NULL) {
-            ThrowError (1, "out of memory, cannot load debug infos for executable \"%s\" (%s %li)", pappldata->ExecutableFileName, __FILE__, (int32_t)__LINE__);
+            ThrowError (1, "out of memory, cannot load debug infos for executable \"%s\" (%s %"PRIu32")", pappldata->ExecutableFileName, __FILE__, (uint32_t)__LINE__);
             return NULL;
         }
         pappldata->symbol_buffer[pappldata->symbol_buffer_active_entry].size_symbol_name_list = 1024 * 1024;
@@ -1315,7 +1315,7 @@ int32_t insert_label (char *label, int32_t typenr, uint64_t adr, DEBUG_INFOS_DAT
         if (((pappldata->label_list = (LABEL_LIST_ELEM*)my_realloc (pappldata->label_list, sizeof (LABEL_LIST_ELEM) * pappldata->size_label_list)) == NULL) ||
             ((pappldata->addr_list = (ADDR_LIST_ELEM*)my_realloc (pappldata->addr_list, sizeof (ADDR_LIST_ELEM) * pappldata->size_label_list)) == NULL) ||
             ((pappldata->sorted_label_list = (uint32_t*)my_realloc (pappldata->sorted_label_list, sizeof (uint32_t) * pappldata->size_label_list)) == NULL)) {
-            ThrowError (1, "sanity check %s %li", __FILE__, (int32_t)__LINE__);
+            ThrowError (1, "sanity check %s %"PRIu32, __FILE__, (uint32_t)__LINE__);
             ret = -1;
             goto __OUT;
         }
@@ -1405,7 +1405,7 @@ int32_t insert_label_no_address (char *label, int32_t typenr, int32_t own_typenr
     if ((pappldata->label_list_no_addr_entrys + 1) >= pappldata->size_label_list_no_addr) {
         pappldata->size_label_list_no_addr += 1024;
         if (((pappldata->label_list_no_addr = (LABEL_LIST_ELEM*)my_realloc (pappldata->label_list_no_addr, sizeof (LABEL_LIST_ELEM) * pappldata->size_label_list_no_addr)) == NULL)) {
-            ThrowError (1, "sanity check %s %li", __FILE__, (int32_t)__LINE__);
+            ThrowError (1, "sanity check %s %"PRIu32, __FILE__, (uint32_t)__LINE__);
             return -1;
         }
     }
@@ -1465,7 +1465,7 @@ int32_t insert_struct (int16_t what, int32_t typenr, const char * const struct_n
     }
 
     if (typenr < USER_DEF_TYPEID_LIMIT) {
-        ThrowError (1, "Internal error: %s %li", __FILE__, (int32_t)__LINE__);
+        ThrowError (1, "Internal error: %s %"PRIu32, __FILE__, (uint32_t)__LINE__);
         ret = -1;
         goto __OUT;
     }
@@ -1480,7 +1480,7 @@ int32_t insert_struct (int16_t what, int32_t typenr, const char * const struct_n
         if ((pappldata->dtype_list_entrys + 1) >= pappldata->size_dtype_list) {
             pappldata->size_dtype_list += 1024;
             if ((pappldata->dtype_list =(DTYPE_LIST_ELEM**)my_realloc (pappldata->dtype_list, sizeof (DTYPE_LIST_ELEM*) * pappldata->size_dtype_list)) == NULL) {
-                ThrowError (1, "out of memory, cannot load debug infos for process \"%s\" (%s %li)", pappldata->ExecutableFileName, __FILE__, (int32_t)__LINE__);
+                ThrowError (1, "out of memory, cannot load debug infos for process \"%s\" (%s %"PRIu32")", pappldata->ExecutableFileName, __FILE__, (uint32_t)__LINE__);
                 ret = -1;
                 goto __OUT;
             }
@@ -1489,14 +1489,14 @@ int32_t insert_struct (int16_t what, int32_t typenr, const char * const struct_n
             if (pappldata->dtype_list_1k_blocks_entrys >= pappldata->size_dtype_list_1k_blocks) {
                 pappldata->size_dtype_list_1k_blocks += 1024;
                 if ((pappldata->dtype_list_1k_blocks =(DTYPE_LIST_ELEM**)my_realloc (pappldata->dtype_list_1k_blocks, sizeof (DTYPE_LIST_ELEM**) * pappldata->size_dtype_list_1k_blocks)) == NULL) {
-                    ThrowError (1, "out of memory, cannot load debug infos for process \"%s\" (%s %li)", pappldata->ExecutableFileName, __FILE__, (int32_t)__LINE__);
+                    ThrowError (1, "out of memory, cannot load debug infos for process \"%s\" (%s %"PRIu32")", pappldata->ExecutableFileName, __FILE__, (uint32_t)__LINE__);
                     ret = -1;
                     goto __OUT;
                 }
             }
             // 1024 new elements
             if ((pappldata->dtype_list_1k_blocks[pappldata->dtype_list_1k_blocks_active_entry] = (DTYPE_LIST_ELEM*)my_calloc (sizeof (DTYPE_LIST_ELEM), 1024)) == NULL) {
-                ThrowError (1, "out of memory, cannot load debug infos for process \"%s\" (%s %li)", pappldata->ExecutableFileName, __FILE__, (int32_t)__LINE__);
+                ThrowError (1, "out of memory, cannot load debug infos for process \"%s\" (%s %"PRIu32")", pappldata->ExecutableFileName, __FILE__, (uint32_t)__LINE__);
                 ret = -1;
                 goto __OUT;
             }
@@ -1528,7 +1528,7 @@ int32_t insert_struct (int16_t what, int32_t typenr, const char * const struct_n
         if ((pappldata->h_dtype_list_entrys + 1) >= pappldata->h_size_dtype_list) {
             pappldata->h_size_dtype_list += 1024;
             if ((pappldata->h_dtype_list =(DTYPE_LIST_ELEM**)my_realloc (pappldata->h_dtype_list, sizeof (DTYPE_LIST_ELEM*) * pappldata->h_size_dtype_list)) == NULL) {
-                ThrowError (1, "out of memory, cannot load debug infos for process \"%s\" (%s %li)", pappldata->ExecutableFileName, __FILE__, (int32_t)__LINE__);
+                ThrowError (1, "out of memory, cannot load debug infos for process \"%s\" (%s %"PRIu32")", pappldata->ExecutableFileName, __FILE__, (uint32_t)__LINE__);
                 ret = -1;
                 goto __OUT;
             }
@@ -1537,14 +1537,14 @@ int32_t insert_struct (int16_t what, int32_t typenr, const char * const struct_n
             if (pappldata->h_dtype_list_1k_blocks_entrys >= pappldata->h_size_dtype_list_1k_blocks) {
                 pappldata->h_size_dtype_list_1k_blocks += 1024;
                 if ((pappldata->h_dtype_list_1k_blocks =(DTYPE_LIST_ELEM**)my_realloc (pappldata->h_dtype_list_1k_blocks, sizeof (DTYPE_LIST_ELEM**) * pappldata->h_size_dtype_list_1k_blocks)) == NULL) {
-                    ThrowError (1, "out of memory, cannot load debug infos for process \"%s\" (%s %li)", pappldata->ExecutableFileName, __FILE__, (int32_t)__LINE__);
+                    ThrowError (1, "out of memory, cannot load debug infos for process \"%s\" (%s %"PRIu32")", pappldata->ExecutableFileName, __FILE__, (uint32_t)__LINE__);
                     ret = -1;
                     goto __OUT;
                 }
             }
             // 1024 neue allozieren
             if ((pappldata->h_dtype_list_1k_blocks[pappldata->h_dtype_list_1k_blocks_active_entry] = (DTYPE_LIST_ELEM*)my_calloc (sizeof (DTYPE_LIST_ELEM), 1024)) == NULL) {
-                ThrowError (1, "out of memory, cannot load debug infos for process \"%s\" (%s %li)", pappldata->ExecutableFileName, __FILE__, (int32_t)__LINE__);
+                ThrowError (1, "out of memory, cannot load debug infos for process \"%s\" (%s %"PRIu32")", pappldata->ExecutableFileName, __FILE__, (uint32_t)__LINE__);
                 ret = -1;
                 goto __OUT;
             }
@@ -1600,7 +1600,7 @@ int32_t insert_field (int32_t fieldnr,
 
     BEGIN_RUNTIME_MEASSUREMENT ("insert_struct")
     if (fieldnr < USER_DEF_TYPEID_LIMIT) {
-        ThrowError (1, "Internal error: %s %li", __FILE__, (int32_t)__LINE__);
+        ThrowError (1, "Internal error: %s %"PRIu32, __FILE__, (uint32_t)__LINE__);
         ret = -1;
         goto __OUT;
     }
@@ -1609,7 +1609,7 @@ int32_t insert_field (int32_t fieldnr,
     if ((pappldata->field_list_entrys + 1) >= pappldata->size_field_list) {
         pappldata->size_field_list += 1024;
         if ((pappldata->field_list =(FIELD_LIST_ELEM**)my_realloc (pappldata->field_list, sizeof (FIELD_LIST_ELEM*) * pappldata->size_field_list)) == NULL) {
-            ThrowError (1, "out of memory, cannot load debug infos for process \"%s\" (%s %li)", pappldata->ExecutableFileName, __FILE__, (int32_t)__LINE__);
+            ThrowError (1, "out of memory, cannot load debug infos for process \"%s\" (%s %"PRIu32")", pappldata->ExecutableFileName, __FILE__, (uint32_t)__LINE__);
             ret = -1;
             goto __OUT;
         }
@@ -1618,14 +1618,14 @@ int32_t insert_field (int32_t fieldnr,
         if (pappldata->field_list_1k_blocks_entrys >= pappldata->size_field_list_1k_blocks) {
             pappldata->size_field_list_1k_blocks += 1024;
             if ((pappldata->field_list_1k_blocks =(FIELD_LIST_ELEM**)my_realloc (pappldata->field_list_1k_blocks, sizeof (FIELD_LIST_ELEM**) * pappldata->size_field_list_1k_blocks)) == NULL) {
-                ThrowError (1, "out of memory, cannot load debug infos for process \"%s\" (%s %li)", pappldata->ExecutableFileName, __FILE__, (int32_t)__LINE__);
+                ThrowError (1, "out of memory, cannot load debug infos for process \"%s\" (%s %"PRIu32")", pappldata->ExecutableFileName, __FILE__, (uint32_t)__LINE__);
                 ret = -1;
                 goto __OUT;
             }
         }
         // 1024 new elements
         if ((pappldata->field_list_1k_blocks[pappldata->field_list_1k_blocks_active_entry] = (FIELD_LIST_ELEM*)my_calloc (sizeof (FIELD_LIST_ELEM), 1024)) == NULL) {
-            ThrowError (1, "out of memory, cannot load debug infos for process \"%s\" (%s %li)", pappldata->ExecutableFileName, __FILE__, (int32_t)__LINE__);
+            ThrowError (1, "out of memory, cannot load debug infos for process \"%s\" (%s %"PRIu32")", pappldata->ExecutableFileName, __FILE__, (uint32_t)__LINE__);
             ret = -1;
             goto __OUT;
         }
@@ -1847,7 +1847,7 @@ int32_t insert_struct_field (int32_t fieldnr, int32_t typenr,
 
     BEGIN_RUNTIME_MEASSUREMENT ("insert_struct_field")
     if (fieldnr < USER_DEF_TYPEID_LIMIT) {
-        ThrowError (1, "Internal error: %s %li", __FILE__, (int32_t)__LINE__);
+        ThrowError (1, "Internal error: %s %"PRIu32, __FILE__, (uint32_t)__LINE__);
         ret = -1;
         goto __OUT;
     }
@@ -1855,7 +1855,7 @@ int32_t insert_struct_field (int32_t fieldnr, int32_t typenr,
     if ((pappldata->fieldidx_list_entrys + 1) >= pappldata->size_fieldidx_list) {
         pappldata->size_fieldidx_list += 64*1024;
         if ((pappldata->fieldidx_list =(FIELDIDX_LIST_ELEM*)my_realloc (pappldata->fieldidx_list, sizeof (FIELDIDX_LIST_ELEM) * pappldata->size_fieldidx_list)) == NULL) {
-            ThrowError (1, "Internal error: %s %li", __FILE__, (int32_t)__LINE__);
+            ThrowError (1, "Internal error: %s %"PRIu32, __FILE__, (uint32_t)__LINE__);
             ret = -1;
             goto __OUT;
         }
@@ -1871,7 +1871,7 @@ int32_t insert_struct_field (int32_t fieldnr, int32_t typenr,
     pappldata->fieldidx_list[pappldata->fieldidx_list_entrys].nextidx = -1;
 
     if (connect_struct_field (fieldnr, (int32_t)pappldata->fieldidx_list_entrys, pappldata)) {
-        ThrowError (1, "Internal error: %s %li", __FILE__, (int32_t)__LINE__);
+        ThrowError (1, "Internal error: %s %"PRIu32, __FILE__, (uint32_t)__LINE__);
         ret = -1;
         goto __OUT;
     }
@@ -1999,7 +1999,7 @@ char *get_struct_elem_by_offset (int32_t parent_typenr,
             // ?
         }
         if (itemptr->what != STRUCT_ELEM) {
-             ThrowError (1, "sanity check %s %li", __FILE__, (int32_t)__LINE__);
+             ThrowError (1, "sanity check %s %"PRIu32, __FILE__, (uint32_t)__LINE__);
              ret = NULL;
              goto __OUT;
         }
@@ -3003,7 +3003,7 @@ char *get_struct_entry_typestr_internal(int32_t *ptypenr, int32_t pos, int32_t *
 
     BEGIN_RUNTIME_MEASSUREMENT ("get_struct_entry_typestr")
     if (pos >= (int32_t)pappldata->fieldidx_list_entrys) {
-        ThrowError (1, "sanity check %s %li", __FILE__, (int32_t)__LINE__);
+        ThrowError (1, "sanity check %s %"PRIu32, __FILE__, (uint32_t)__LINE__);
         ret = NULL;
         goto __OUT;
     }
@@ -3069,7 +3069,7 @@ int32_t get_array_elem_type_and_size (int32_t *arrayelem_typenr, int32_t *arraye
             } while ((itemptr->what == MODIFIER_ELEM) || (itemptr->what == TYPEDEF_ELEM));
         }
         if (itemptr->what != ARRAY_ELEM) {
-            ThrowError (1, "sanity check %s %li", __FILE__, (int32_t)__LINE__);
+            ThrowError (1, "sanity check %s %"PRIu32, __FILE__, (uint32_t)__LINE__);
         }
         if (arrayelem_typenr != NULL) *arrayelem_typenr = itemptr->array_elem_typenr;
         if (array_size != NULL) *array_size = itemptr->array_size;
@@ -3124,7 +3124,7 @@ int32_t get_array_element_count (int32_t array_typenr, DEBUG_INFOS_ASSOCIATED_CO
                 } while (itemptr->what == MODIFIER_ELEM);
             }
             if ((itemptr->what != ARRAY_ELEM) && (itemptr->what != TYPEDEF_ELEM)) {
-                ThrowError (1, "sanity check %s %li", __FILE__, (int32_t)__LINE__);
+                ThrowError (1, "sanity check %s %"PRIu32, __FILE__, (uint32_t)__LINE__);
             }
             ret = itemptr->array_elements;
             goto __OUT;
@@ -3171,7 +3171,7 @@ int32_t get_structure_element_count (int32_t structure_typenr, DEBUG_INFOS_ASSOC
                 } while ((itemptr->what == MODIFIER_ELEM) || (itemptr->what == TYPEDEF_ELEM));
             }
             if (itemptr->what != STRUCT_ELEM) {
-                ThrowError (1, "sanity check %s %li", __FILE__, (int32_t)__LINE__);
+                ThrowError (1, "sanity check %s %"PRIu32, __FILE__, (uint32_t)__LINE__);
                 goto __OUT;
             }
 
@@ -3231,7 +3231,7 @@ static int32_t calc_all_array_size_recursive (int32_t parent_typenr, DEBUG_INFOS
             break;
         }
     }
-    if (!NoErrMsgFlag) ThrowError (1, "sanity check %s %li parent_typenr = 0x%X", __FILE__, (int32_t)__LINE__, parent_typenr);
+    if (!NoErrMsgFlag) ThrowError (1, "sanity check %s %"PRIu32" parent_typenr = 0x%X", __FILE__, (uint32_t)__LINE__, parent_typenr);
     return 1;
 }
 
