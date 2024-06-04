@@ -206,7 +206,7 @@ void message_output_stream_inner_function (const char *loc_message, int par_Conn
             XilEnvInternal_ReleaseProcessPtr(ProcessInfos);
             ThrowError (1, "cannot open file %s", ProcessInfos->MessageOutputStreamConfig.MessageFilename);
         } else {
-            unsigned char *loc_datum_als_string;
+            const char *loc_datum_als_string;
             time_t loc_datum;
             // Read date and time
             time (&loc_datum);
