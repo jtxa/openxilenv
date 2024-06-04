@@ -240,7 +240,7 @@ int dereference_var(void *ptr, int vid)
             }
         }
     }
-    ThrowError(1, "dereference unknown variable vid = %li adr = %p", vid, ptr);
+    ThrowError(1, "dereference unknown variable vid = %i adr = %p", vid, ptr);
     return -1;
 }
 

@@ -256,7 +256,7 @@ static int GetNextStructEntryStruct (int pos,
         strcat (buffer, name);
         *paddress = *paddress + address_offset;
         if (get_struct_entry_typestr (&typenr, entry, &what, internal_data->pappldata) == NULL) {
-            // ThrowError (1, "sanity check %s %li name = %s, pos = %i, buffer = %s", __FILE__, (long)__LINE__, name, pos, buffer);
+            // ThrowError (1, "sanity check %s %"PRIu32" name = %s, pos = %i, buffer = %s", __FILE__, (uint32_t)__LINE__, name, pos, buffer);
             internal_data->typenrs[pos] = typenr;
             internal_data->typenrs[pos] = 0;
             internal_data->idxs[pos] = entry;

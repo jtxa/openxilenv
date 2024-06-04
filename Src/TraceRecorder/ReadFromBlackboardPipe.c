@@ -15,6 +15,7 @@
  */
 
 
+#include <inttypes.h>
 #include <stdio.h>
 #include "Config.h"
 
@@ -131,7 +132,7 @@ void analyze_message (void)
                 break;
             default:
                 {
-                    ThrowError (1, "unknown message %i send from %li, my pid = %li", Header.MessageId, Header.TramsmiterPid, GET_PID());
+                    ThrowError (1, "unknown message %"PRIu32" send from %"PRIi32", my pid = %i", Header.MessageId, Header.TramsmiterPid, GET_PID());
                     RemoveOneMessageFromFiFo (rdpipe_frames[f].ReqFiFo);
                 }
             }
