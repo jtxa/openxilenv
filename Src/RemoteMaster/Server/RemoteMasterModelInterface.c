@@ -996,7 +996,7 @@ void copy_vari_egs_bb(void)
                     if (pvari->Vid == egs_bbvari_refarray[x].vid) {
                         if (pvari->AccessFlags &
                             pvari->WrEnableFlags & wrflag) {
-                            // Only copy if an oter process has written
+                            // Only copy if another process has written
                             if ((pvari->WrFlags & wrflag) == 0) {
                                 if ((egs_bbvari_refarray[x].flags & REF_ONLY_WRITE_FLAG) == REF_ONLY_WRITE_FLAG) {
                                     switch (pvari->Type) {
@@ -1023,6 +1023,9 @@ void copy_vari_egs_bb(void)
                                         break;
                                     case BB_DOUBLE:
                                         pvari->Value.d = *(double*)egs_bbvari_refarray[x].ptr;
+                                        break;
+                                    default:
+                                        // do nothing
                                         break;
                                     }
                                     pvari->WrFlags = ALL_WRFLAG_MASK;
@@ -1078,7 +1081,7 @@ void copy_vari_bb_egs(void)
                     // Vid match
                     if (pvari->Vid == egs_bbvari_refarray[x].vid) {
                         if ((egs_bbvari_refarray[x].flags & REF_ONLY_READ_FLAG) == REF_ONLY_READ_FLAG) {
-                            // Reset own WR flag to check if an other process has write to the variable meanwhile
+                            // Reset own WR flag to check if another process has written to the variable meanwhile
                             pvari->WrFlags &= wrflag_neg;
                             switch (pvari->Type) {
                             case BB_BYTE:
@@ -1104,6 +1107,9 @@ void copy_vari_bb_egs(void)
                                 break;
                             case BB_DOUBLE:
                                 *(double*)egs_bbvari_refarray[x].ptr = pvari->Value.d;
+                                break;
+                            default:
+                                // do nothing
                                 break;
                             }
                         }
