@@ -36,9 +36,7 @@
 #include <strings.h>
 #include "RemoteMasterReqToClient.h"
 #include "RealtimeScheduler.h"
-#define _alloca(x) alloca(x)
-#define stricmp(s1,s2) strcasecmp(s1,s2)
-#define strnicmp(s1,s2,n) strncasecmp(s1,s2,n)
+#include "Platform.h"
 #else
 #include "Scheduler.h"
 #include "EnvironmentVariables.h"
