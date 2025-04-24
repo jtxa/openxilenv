@@ -1128,7 +1128,7 @@ OpenXilEnv has no direct printing function. But it has an interface to the clipb
 
 ###  6.4. <a name='Tachometer'></a>Tachometer
 
-![](./Images/Tacho.jpg)
+![](./Images/Tacho.png)
 
 Right-click (right mouse button), double-click (left mouse button) or **Display --> Config** opens the configuration-dialogue for the active tachometer:
 
@@ -2669,8 +2669,8 @@ Header1...Header6: The following text is displayed as headline. Smaller accordin
 
 ##### REPORT_LINK_TO(link,text)
 
-Creates a link in the report-file whereby **link** is the referenced document (e.g.:
-[\\\\homepage.html](file:////c:/user/homepage.html)) and **text** is the displayed text.
+Creates a link in the report-file whereby **link** is the referenced document
+(e.g.: `file:////c:/user/homepage.html`) and **text** is the displayed text.
 
 ##### REPORT_RAW *Html-Text*
 
@@ -7078,10 +7078,6 @@ Example:
 ##### add_msn_lsn(x)
 
 This function adds the highest nibble (4bits) and the lowest nibble, all other bytes are ignored.
-
-Example:
-
-![](./Images/add_msn_lsn.png){width="388px" height="255px"}
 
 ##### swap16(x)
 
