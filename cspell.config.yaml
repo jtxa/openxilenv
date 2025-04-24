@@ -1,0 +1,33 @@
+$schema: https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json
+version: "0.2"
+language: en
+ignorePaths:
+  - /.git
+  - .gitignore
+words:
+  - automatable
+  - BBVARI
+  - BBVARIS
+  - BBVARITYPE
+  - BBVARIVID
+  - CANFD
+  - DBUILD
+  - DCMAKE
+  - EDITMSG
+  - esmini
+  - Friedrichshafen
+  - lpthread
+  - Makefiles
+  - Multicore
+  - OpenXilEnv
+  - pugixml
+  - qtbase
+  - RDTSC
+  - stdlib
+  - UQWORD
+  - VARI
+  - VARIS
+  - windeployqt
+  - WRFLAG
+  - XilEnv
+  - ZF
