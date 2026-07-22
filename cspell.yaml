@@ -1,0 +1,36 @@
+version: "0.2"
+
+language: en
+
+dictionaries:
+- en_US
+- cpp
+- python
+- softwareTerms
+- local
+
+dictionaryDefinitions:
+- name: local
+  path: docs/openxilenv-dictionary.txt
+
+ignorePaths:
+- ".git*"
+- "third_party/**"
+- "*.ini"
+
+words:
+- AUTOMOC
+- AUTORCC
+- AUTOUIC
+- fqbn
+- Friedrichshafen
+- Kitware
+- Makefiles
+- Multicore
+- niXman
+- pugixml
+- qtbase
+- ucrt
+- unlogged
+- Userguide
+- windeployqt6

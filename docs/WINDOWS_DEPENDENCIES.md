@@ -2,15 +2,15 @@
 
 This guide explains how to install the Windows build dependencies for OpenXilEnv and how to build **Qt 6.9.3 (qtbase)** from source with **MinGW 14.2 (UCRT)**. All commands are for **Windows CMD** (not PowerShell).
 
-**Choose your folders**
+## Folder structure
 
 We recommend the following folder structure and will stick to it during this build manual.
 You can change the layout to your preference and adopt the command lines accordingly.
 
-```
+```plain
 %SystemDrive%\dev\
 ├── tools\                  # %TOOLS_ROOT%
-│   ├── mingw64\            # MinGW (niXman, 14.2.0, win32-seh-ucrt)
+│   ├── mingw64\            # MinGW
 │   ├── Qt6_9_3\            # Qt install prefix
 │   └── OpenXilEnv\         # OpenXilEnv install prefix
 │
@@ -25,7 +25,7 @@ You can change the layout to your preference and adopt the command lines accordi
 
 Set these variables once and reuse them everywhere. Adjust to your preference.
 
-```cmd
+```batch
 set "TOOLS_ROOT=%SystemDrive%\dev\tools"
 set "SRC_ROOT=%SystemDrive%\dev\src"
 set "BUILD_ROOT=%SystemDrive%\dev\build"
@@ -40,15 +40,21 @@ set "BUILD_ROOT=%SystemDrive%\dev\build"
 ## 2. Install MinGW
 
 For quick starters:
+
 1. Download **niXman mingw-builds** package [x86_64-14.2.0-release-win32-seh-ucrt-rt_v12-rev1.7z](https://github.com/niXman/mingw-builds-binaries/releases/download/14.2.0-rt_v12-rev1/x86_64-14.2.0-release-win32-seh-ucrt-rt_v12-rev1.7z)
-2. Extract to: `%TOOLS_ROOT%\mingw64` 
-3. Add to `PATH` (persistently or for the current session). For a one-time session:
-```cmd
-set PATH=%TOOLS_ROOT%\mingw64\bin;%PATH%
-```
+
+2. Extract to: `%TOOLS_ROOT%\mingw64`
+
+3. Add to `PATH` (persistently or for the current session).
+  For a one-time session:
+
+  ```batch
+  set PATH=%TOOLS_ROOT%\mingw64\bin;%PATH%
+  ```
 
 Verify:
-```cmd
+
+```batch
 g++ --version
 where g++
 cmake --version
@@ -61,34 +67,49 @@ where python
 
 These steps use the **qtbase 6.9.3** source tree and install to `%TOOLS_ROOT%\Qt6_9_3`.
 
-1. **Fetch sources** (download [ZIP file](https://github.com/qt/qtbase/archive/refs/tags/v6.9.3.zip) or git clone of `qtbase` 6.9.3) and extract to a short path, e.g.:
-   - Sources: `%SRC_ROOT%\Qt6_9_3\qtbase-6.9.3`
-2. **Create build directory**:
-```cmd
+### 3.1. Fetch sources
+
+(download [ZIP file](https://github.com/qt/qtbase/archive/refs/tags/v6.9.3.zip) or git clone of `qtbase` 6.9.3) and extract to a short path, e.g.:
+
+Sources: `%SRC_ROOT%\Qt6_9_3\qtbase-6.9.3`
+
+### 3.2. Create build directory
+
+```batch
 mkdir %BUILD_ROOT%\Qt6_9_3
 cd %BUILD_ROOT%\Qt6_9_3
 ```
-3. **Ensure Ninja is available**:
-```cmd
+
+### 3.3. Ensure Ninja is available
+
+```batch
 ninja --version
 where ninja
 ```
+
 Some CMake installers ship Ninja; otherwise install it (download [ZIP file](https://github.com/ninja-build/ninja/releases/download/v1.13.1/ninja-win.zip) and unzip it) and add to PATH.
 
-```cmd
+```batch
 set PATH=%TOOLS_ROOT%\ninja-win;%PATH%
 ```
 
-4. **Configure** (Qt’s `configure.bat` will generate a CMake build tree):
-```cmd
+### 3.4. Configure
+
+(Qt’s `configure.bat` will generate a CMake build tree):
+
+```batch
 %SRC_ROOT%\Qt6_9_3\qtbase-6.9.3\configure.bat -debug-and-release -opensource -confirm-license -prefix %TOOLS_ROOT%\Qt6_9_3
 ```
-5. **Build**:
-```cmd
+
+### 3.5. Build
+
+```batch
 cmake --build . --parallel
 ```
-6. **Install (both configs)**:
-```cmd
+
+### 3.6. Install (both configs)
+
+```batch
 cmake --install . --config Release
 cmake --install . --config Debug
 ```
@@ -96,30 +117,31 @@ cmake --install . --config Debug
 ## 4. Add Qt to PATH
 
 Before configuring OpenXilEnv, make Qt’s bin available in PATH for the session:
-```cmd
+
+```batch
 set PATH=%PATH%;%TOOLS_ROOT%\Qt6_9_3\bin
 ```
 
 ## 5. Optional / Additional Dependencies
 
 - **pugixml 1.15** — required if building with `-DBUILD_WITH_FMU2_SUPPORT=ON` or `-DBUILD_WITH_FMU3_SUPPORT=ON`\
-From https://pugixml.org/ download the [ZIP file](https://github.com/zeux/pugixml/releases/download/v1.15/pugixml-1.15.zip)\
-Unzip it e.g. to `%TOOLS_ROOT%\pugixml_1_15`
+  From <https://pugixml.org/> download the [ZIP file](https://github.com/zeux/pugixml/releases/download/v1.15/pugixml-1.15.zip)\
+  Unzip it e.g. to `%TOOLS_ROOT%\pugixml_1_15`
 
 - **FMU Parser (FMI 2.0 / 3.0)** — required for FMU support\
-For FMI 2.0...\
-Download the [ZIP file](https://github.com/modelica/fmi-standard/releases/download/v2.0.4/FMI-Standard-2.0.4.zip)\
-Unzip it e.g. to `%TOOLS_ROOT%\FMI_2_0_4`\
-For FMI 3.0...\
-Download the [ZIP file](https://github.com/modelica/fmi-standard/releases/download/v3.0.1/FMI-Standard-3.0.1.zip)\
-Unzip it e.g. to `%TOOLS_ROOT%\FMI_3_0_1`
-
+  For FMI 2.0...\
+  Download the [ZIP file](https://github.com/modelica/fmi-standard/releases/download/v2.0.4/FMI-Standard-2.0.4.zip)\
+  Unzip it e.g. to `%TOOLS_ROOT%\FMI_2_0_4`\
+  For FMI 3.0...\
+  Download the [ZIP file](https://github.com/modelica/fmi-standard/releases/download/v3.0.1/FMI-Standard-3.0.1.zip)\
+  Unzip it e.g. to `%TOOLS_ROOT%\FMI_3_0_1`
 
 Keep the source paths handy to pass via:
-```
--DPUGIXML_SOURCE_PATH=%TOOLS_ROOT%\pugixml_1_15\src
--DFMI2_SOURCE_PATH=%TOOLS_ROOT%\FMI_2_0_4\headers
--DFMI3_SOURCE_PATH=%TOOLS_ROOT%\FMI_3_0_1\headers
+
+```batch
+-D PUGIXML_SOURCE_PATH=%TOOLS_ROOT%\pugixml_1_15\src
+-D FMI2_SOURCE_PATH=%TOOLS_ROOT%\FMI_2_0_4\headers
+-D FMI3_SOURCE_PATH=%TOOLS_ROOT%\FMI_3_0_1\headers
 ```
 
 ## 6. Known‑Good Versions (reference)
@@ -131,8 +153,8 @@ Keep the source paths handy to pass via:
 
 ## Appendix: Example Session (all in one place)
 
-```cmd
-:: Set root pathes:
+```batch
+:: Set root paths:
 set "TOOLS_ROOT=%SystemDrive%\dev\tools"
 set "SRC_ROOT=%SystemDrive%\dev\src"
 set "BUILD_ROOT=%SystemDrive%\dev\build"
@@ -151,4 +173,6 @@ cmake --install . --config Debug
 set PATH=%PATH%;%TOOLS_ROOT%\Qt6_9_3\bin
 ```
 
-## With all dependencies installed, you can now [build OpenXilEnv](./WINDOWS_BUILD.md).
+## Final words
+
+With all dependencies installed, you can now [build OpenXilEnv](./WINDOWS_BUILD.md).

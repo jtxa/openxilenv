@@ -1,0 +1,17 @@
+
+# cspell-tools: keep-case no-split
+
+Bargraph
+ENDVARLIST
+HDPLAYER
+HDRECORDER
+HDRECORDER_SAMPLERATE
+HDRECORDER_SAMPLELENGTH
+OpenXilEnv
+RAMPE
+reference_varis
+STARTVARLIST
+Stimulis
+Tacho
+Vari
+XilEnv

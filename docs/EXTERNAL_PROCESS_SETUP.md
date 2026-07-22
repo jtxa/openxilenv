@@ -1,4 +1,4 @@
-## Setup an External Process
+# Setup an External Process
 
 An external process must implement the following four functions:
 
@@ -11,7 +11,7 @@ void terminate_test_object(void);
 
 These functions define initialization, cyclic behavior, and termination of your test object.
 
-Example: `Samples/ExternalProcesses/ExtProc_Simple.c`
+## Example: `Samples/ExternalProcesses/ExtProc_Simple.c`
 
 ```c
 #include <stdlib.h>
@@ -57,23 +57,31 @@ void cyclic_test_object(void)
 void terminate_test_object(void) {}
 ```
 
-Build example:
-```bash
-# Windows
-gcc -g -I "<openxilenv-install-dir>\include" ExtProc_Simple.c -o ExtProc_Simple.exe
+## Build example
 
+```batch
+:: Windows
+gcc -g -I "<openxilenv-install-dir>\include" ExtProc_Simple.c -o ExtProc_Simple.exe
+```
+
+```sh
 # Linux
 gcc -g -I <openxilenv-install-dir>/include ExtProc_Simple.c -ldl -lpthread -lm -o ExtProc_Simple
 ```
 
-Run example:
-```bash
-# Windows
+## Run example
+
+```batch
+:: Windows
 set PATH=%PATH%;<openxilenv-install-dir>
 ExtProc_Simple.exe -q2 XilEnvGui.exe -ini <openxilenv-install-dir>\Samples\Configurations\ElectricCarSample.ini
 
+```
+
+```sh
 # Linux
 export PATH=$PATH:<openxilenv-install-dir>
 ./ExtProc_Simple -q2 XilEnvGui -ini <openxilenv-install-dir>/Samples/Configurations/ElectricCarSample.ini
 ```
+
 Ensure both ExtProc_Simple and XilEnvGui are available in the same folder or included in your PATH.

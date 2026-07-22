@@ -4,15 +4,15 @@ project(XilEnvGui VERSION 10.0 LANGUAGES C CXX)
 
 option(BUILD_ONLY_EXAMPLES "Build only examples" OFF)
 
-option(BUILD_32BIT "Build 32 bit target (only librarys and/or examples)" OFF)
+option(BUILD_32BIT "Build 32 bit target (only libraries and/or examples)" OFF)
 
 option(BUILD_WITH_FMU2_SUPPORT "Build with FMU2 support" OFF)
 option(BUILD_WITH_FMU3_SUPPORT "Build with FMU3 support" OFF)
 set(PUGIXML_SOURCE_PATH "Default" CACHE PATH "path to pugixml")
-#option(PUGIXML_SOURCE_PATH "Path to the sourcees of pugixml")
+#option(PUGIXML_SOURCE_PATH "Path to the sources of pugixml")
 set(FMI2_SOURCE_PATH "Default" CACHE PATH "path to FMI2")
 set(FMI3_SOURCE_PATH "Default" CACHE PATH "path to FMI3")
-#option(FMI_SOURCE_PATH "Path to the sourcees of FMI interface")
+#option(FMI_SOURCE_PATH "Path to the sources of FMI interface")
 
 option(BUILD_EXAMPLES "Build with examples" ON)
 option(BUILD_ESMINI_EXAMPLE "Build with Esmini examples (OpenSCENARIO)" OFF)
@@ -32,7 +32,7 @@ else()
 endif()
 
 if(NOT BUILD_ONLY_EXAMPLES AND NOT BUILD_32BIT)
-# Qt is only neccessay if 64 bit and not only examples should beebn build
+# Qt is only necessary if 64 bit and not only examples should be built
     message("Qt")
     set(CMAKE_AUTOUIC ON)
     set(CMAKE_AUTOMOC ON)
@@ -48,7 +48,7 @@ set(CMAKE_C_STANDARD_REQUIRED ON)
 message("Target cpu architecture byte size")
 message(${MY_CMAKE_SIZEOF_VOID_P})
 message("Target compiler")
-message(${CMAKE_C_COMPILER}) 
+message(${CMAKE_C_COMPILER})
 
 if(BUILD_ONLY_EXAMPLES)
     add_subdirectory(Samples)
@@ -224,7 +224,7 @@ else()
         #
 
         add_library(XilEnvRpc SHARED)
-        set_target_properties(XilEnvRpc PROPERTIES PUBLIC_HEADER 
+        set_target_properties(XilEnvRpc PROPERTIES PUBLIC_HEADER
             ./Src/RpcInterface/XilEnvRpc.h
         )
 
@@ -406,9 +406,9 @@ else()
 
     # copy additional none *.h files to the include folder
     if(${MY_CMAKE_SIZEOF_VOID_P} GREATER 4)
-        INSTALL(FILES 
+        INSTALL(FILES
             ./Src/ExternalProcess/XilEnvExtProcMain.c
-            ./Src/ExternalProcess/XilEnvExtProcInterfaceMethods.c 
+            ./Src/ExternalProcess/XilEnvExtProcInterfaceMethods.c
             ./Src/ExternalProcess/XilEnvExtProcCan.h
             DESTINATION  ${CMAKE_INSTALL_PREFIX}/include
         )

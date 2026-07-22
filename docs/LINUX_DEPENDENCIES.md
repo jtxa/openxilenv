@@ -4,15 +4,14 @@ This guide explains how to install the Linux build dependencies for OpenXilEnv o
 
 All commands are for **bash** shell.
 
-**Choose your folders**
+## Folder structure
 
 We recommend the following folder structure and will stick to it during this build manual.
 You can change the layout to your preference and adopt the command lines accordingly.
 
-```
+```plain
 $HOME/dev/
 ├── tools/                  # $TOOLS_ROOT
-│   ├── mingw64/            # MinGW (niXman, 14.2.0, win32-seh-ucrt)
 │   ├── Qt6_9_3/            # Qt install prefix
 │   └── OpenXilEnv/         # OpenXilEnv install prefix
 │
@@ -33,7 +32,7 @@ export SRC_ROOT="$HOME/dev/src"
 export BUILD_ROOT="$HOME/dev/build"
 ```
 
-**Folder layout example:**
+Folder layout example:
 
 - `$TOOLS_ROOT/openxilenv` - OpenXilEnv install prefix
 - `$SRC_ROOT/openxilenv` - OpenXilEnv source code
@@ -57,6 +56,7 @@ sudo apt install -y build-essential cmake ninja-build python3 \
 ```
 
 Verify versions:
+
 ```bash
 cmake --version
 gcc --version
@@ -65,6 +65,7 @@ ninja --version
 ```
 
 **Minimum requirements:**
+
 - CMake >= 3.20
 - GCC >= 9.0 (for C++17 support)
 - Python >= 3.6
@@ -73,13 +74,13 @@ ninja --version
 
 The recommended way to install Qt is via the package manager.
 
-### Ubuntu 24.04 (Noble) and later:
+### Ubuntu 24.04 (Noble) and later
 
 ```bash
 sudo apt install -y qt6-base-dev qt6-base-dev-tools
 ```
 
-### Ubuntu 22.04 (Jammy) and earlier:
+### Ubuntu 22.04 (Jammy) and earlier
 
 Qt 6.9 is not available in the default repositories. You have two options:
 
@@ -87,6 +88,7 @@ Qt 6.9 is not available in the default repositories. You have two options:
 2. **Build from source** (see [Appendix](#appendix-building-qt-69-from-source-alternative-method) below)
 
 After installation, verify Qt is available:
+
 ```bash
 qmake6 --version
 # or
@@ -101,7 +103,7 @@ mkdir -p "$TOOLS_ROOT" "$SRC_ROOT" "$BUILD_ROOT"
 
 ## 4. Optional / Additional Dependencies
 
-- **pugixml 1.15** - required if building with `-DBUILD_WITH_FMU2_SUPPORT=ON` or `-DBUILD_WITH_FMU3_SUPPORT=ON`
+- **pugixml 1.15** - required if building with `-D BUILD_WITH_FMU2_SUPPORT=ON` or `-D BUILD_WITH_FMU3_SUPPORT=ON`
 
 ```bash
 cd "$SRC_ROOT"
@@ -112,6 +114,7 @@ tar -xzf pugixml-1.15.tar.gz
 - **FMU Parser (FMI 2.0 / 3.0)** - required for FMU support
 
 For FMI 2.0:
+
 ```bash
 cd "$SRC_ROOT"
 wget https://github.com/modelica/fmi-standard/releases/download/v2.0.4/FMI-Standard-2.0.4.zip
@@ -119,6 +122,7 @@ unzip FMI-Standard-2.0.4.zip -d FMI_2_0_4
 ```
 
 For FMI 3.0:
+
 ```bash
 cd "$SRC_ROOT"
 wget https://github.com/modelica/fmi-standard/releases/download/v3.0.1/FMI-Standard-3.0.1.zip
@@ -126,10 +130,11 @@ unzip FMI-Standard-3.0.1.zip -d FMI_3_0_1
 ```
 
 Keep the source paths handy to pass via:
-```
--DPUGIXML_SOURCE_PATH=$SRC_ROOT/pugixml-1.15/src
--DFMI2_SOURCE_PATH=$SRC_ROOT/FMI_2_0_4/headers
--DFMI3_SOURCE_PATH=$SRC_ROOT/FMI_3_0_1/headers
+
+```bash
+-D PUGIXML_SOURCE_PATH=$SRC_ROOT/pugixml-1.15/src
+-D FMI2_SOURCE_PATH=$SRC_ROOT/FMI_2_0_4/headers
+-D FMI3_SOURCE_PATH=$SRC_ROOT/FMI_3_0_1/headers
 ```
 
 ## 5. RT-Preempt Patch (Optional - for HiL systems)
@@ -145,7 +150,7 @@ sudo apt install linux-image-rt linux-headers-rt
 ```
 
 For custom kernels or more information, see the official RT-Preempt documentation at:
-https://wiki.linuxfoundation.org/realtime/start
+<https://wiki.linuxfoundation.org/realtime/start>
 
 After installation, reboot and select the RT kernel from GRUB menu.
 
@@ -161,14 +166,18 @@ After installation, reboot and select the RT kernel from GRUB menu.
 
 If Qt 6.9 is not available via package manager, you can build it from source.
 
-**Folder layout for source build:**
+Folder layout for source build:
+
 - `$TOOLS_ROOT/Qt6.9` - Qt install prefix
 - `$SRC_ROOT/Qt6.9` - Qt source code
 - `$BUILD_ROOT/Qt6.9` - Qt build directory
 
-### Steps:
+### Steps
 
-1. **Fetch sources** (download [ZIP file](https://github.com/qt/qtbase/archive/refs/tags/v6.9.3.zip) or use git):
+#### Step 1. Fetch sources
+
+(download [ZIP file](https://github.com/qt/qtbase/archive/refs/tags/v6.9.3.zip) or use git):
+
 ```bash
 cd "$SRC_ROOT"
 wget https://github.com/qt/qtbase/archive/refs/tags/v6.9.3.zip
@@ -176,18 +185,23 @@ unzip v6.9.3.zip
 ```
 
 Or using git:
+
 ```bash
 cd "$SRC_ROOT"
 git clone --branch v6.9.3 --depth 1 https://github.com/qt/qtbase.git
 ```
 
-2. **Create build directory**:
+#### Step 2. Create build directory
+
 ```bash
 mkdir -p "$BUILD_ROOT/Qt6.9"
 cd "$BUILD_ROOT/Qt6.9"
 ```
 
-3. **Configure** (Qt's `configure` script will generate a CMake build tree):
+#### Step 3. Configure
+
+(Qt's `configure` script will generate a CMake build tree)
+
 ```bash
 "$SRC_ROOT/qtbase_6_9_3/configure" \
     -release \
@@ -200,23 +214,26 @@ cd "$BUILD_ROOT/Qt6.9"
 
 **Note:** You can use `-debug-and-release` instead of `-release` for both build types, though this may not be available on all platforms. If you encounter issues, use either `-release` or `-debug` separately.
 
-4. **Build**:
+#### Step 4. Build
+
 ```bash
 cmake --build . --parallel $(nproc)
 ```
 
-5. **Install**:
+#### Step 5. Install
+
 ```bash
 cmake --install .
 ```
 
 If you built with separate debug/release configurations:
+
 ```bash
 cmake --install . --config Release
 cmake --install . --config Debug
 ```
 
-6. **Add Qt to PATH and LD_LIBRARY_PATH**:
+#### Step 6 Add Qt to PATH and LD_LIBRARY_PATH
 
 ```bash
 export PATH="$TOOLS_ROOT/Qt6.9/bin:$PATH"
@@ -225,6 +242,7 @@ export Qt6_DIR="$TOOLS_ROOT/Qt6.9/lib/cmake/Qt6"
 ```
 
 To make these permanent, add them to your `~/.bashrc`:
+
 ```bash
 echo 'export PATH="$TOOLS_ROOT/Qt6.9/bin:$PATH"' >> ~/.bashrc
 echo 'export LD_LIBRARY_PATH="$TOOLS_ROOT/Qt6.9/lib:$LD_LIBRARY_PATH"' >> ~/.bashrc
@@ -232,10 +250,11 @@ echo 'export Qt6_DIR="$TOOLS_ROOT/Qt6.9/lib/cmake/Qt6"' >> ~/.bashrc
 ```
 
 Then reload:
+
 ```bash
 source ~/.bashrc
 ```
 
----
+## Final words
 
-## With all dependencies installed, you can now [build OpenXilEnv](./LINUX_BUILD.md).
+With all dependencies installed, you can now [build OpenXilEnv](./LINUX_BUILD.md).

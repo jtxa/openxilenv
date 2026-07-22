@@ -10,7 +10,7 @@ In order to get you started as fast as possible we need to go through some organ
 Before your contribution can be accepted by the project team contributors must
 electronically sign the Eclipse Contributor Agreement (ECA).
 
-* http://www.eclipse.org/legal/ECA.php
+* <http://www.eclipse.org/legal/ECA.php>
 
 Commits that are provided by non-committers must have a Signed-off-by field in
 the footer indicating that the author is aware of the terms by which the
@@ -19,7 +19,7 @@ additionally have an Eclipse Foundation account and must have a signed Eclipse
 Contributor Agreement (ECA) on file.
 
 For more information, please see the Eclipse Committer Handbook:
-https://www.eclipse.org/projects/handbook/#resources-commit
+<https://www.eclipse.org/projects/handbook/#resources-commit>
 
 ## Making Your Changes
 
@@ -27,7 +27,8 @@ https://www.eclipse.org/projects/handbook/#resources-commit
 * Create a new branch for your changes.
 * When you create new files make sure you include a proper license header at the top of the file (see License Header section below).
 * Commit your changes into that branch.
-* Use descriptive and meaningful commit messages. Start the first line of the commit message with the issue number and title e.g. `[#9865] Add token based authentication`.
+* Use descriptive and meaningful commit messages.
+  Start the first line of the commit message with the issue number and title e.g. `[#9865] Add token based authentication`.
 * Squash multiple commits that are related to each other semantically into a single one.
 * Push your changes to your branch in your forked repository.
 
@@ -50,7 +51,8 @@ Please make sure any file you newly create contains a proper license header like
 #
 # SPDX-License-Identifier: Apache-2.0
 ```
-Please adjusted the comment character to the specific file format.
+
+Please adjust the comment character to the specific file format.
 
 ## Submitting the Changes
 

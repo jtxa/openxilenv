@@ -7,48 +7,47 @@ Welcome to the **openXilEnv Python API**.
 - [Getting Started](#getting-started)
 - [Example Usage](#example-usage)
 - [API Reference](#api-reference)
-    - [API Query](#api-query)
-    - [Connection](#connection)
-    - [Scheduler](#scheduler)
-    - [Internal Processes](#internal-processes)
-    - [GUI](#gui)
-    - [Blackboard](#blackboard)
-    - [Calibration](#calibration)
-    - [CAN](#can)
-    - [CCP](#ccp)
-    - [XCP](#xcp)
-    - [CAN bit error](#can-bit-error)
-    - [CAN Recorder](#can-recorder)
-    - [A2lLink](#a2llink)
+  - [API Query](#api-query)
+  - [Connection](#connection)
+  - [Scheduler](#scheduler)
+  - [Internal Processes](#internal-processes)
+  - [GUI](#gui)
+  - [Blackboard](#blackboard)
+  - [Calibration](#calibration)
+  - [CAN](#can)
+  - [CCP](#ccp)
+  - [XCP](#xcp)
+  - [CAN bit error](#can-bit-error)
+  - [CAN Recorder](#can-recorder)
+  - [A2lLink](#a2llink)
 
 ## Getting Started
 
 We recommend to use python in a virtual environment.
 Open a terminal from the root.
 
-To get set-up, make sure python is accessable via CLI.
+To get set-up, make sure python is accessible via CLI.
 
-
-```cmd
+```batch
 python3 --version
 ```
 
 First, create a virtual environment
 
-```cmd
+```batch
 python3 -m venv .venv
 ```
 
 Then activate it
 
-```cmd
+```batch
 source .\venv\bin\activate     # Linux
 .\venv\Scripts\activate        # windows
 ```
 
 Then update and install all dependencies
 
-```cmd
+```batch
 python3 -m pip install --upgrade pip
 python3 -m pip install .\python-api
 ```
@@ -65,7 +64,7 @@ The following is a minimal example how to start **openXilEnv** from a python scr
 from pathlib import Path
 from openXilEnv import XilEnv
 
-xilEnv_insatllation_path = Path("path/to/opeXilEnv")
+xilEnv_installation_path = Path("path/to/opeXilEnv")
 ini_file_path = Path("path/to/an/ini_file.ini")
 
 # initialize xil
