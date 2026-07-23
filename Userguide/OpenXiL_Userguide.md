@@ -396,7 +396,7 @@ OpenXilEnv is primarily a Software in the loop environment for testing embedded 
 
 ###  3.1. <a name='Generalinformationforinstallation'></a>General information for installation
 
-The installation files of OpenXilEnv can be found in the compile directory  
+The installation files of OpenXilEnv can be found in the compile directory
 
 The directories contain one or more of the following programme packages OpenXilEnv, the remote control API (remote_control), the surrounding tools and the the deprecated OpenXiL-Env for HiL. OpenXiL-Env for HiL have a hardware-connection for a lab car. Therefore a special hardware is required. For detail see Section [ OpenXiL-Env for HiL](#OpenXiL-EnvforHiL) below.
 
@@ -410,7 +410,7 @@ The directories contain one or more of the following programme packages OpenXilE
 
 1.  All files from the subdirectory ... TODO. The files have the following meaning:
 
-    
+
     | **File** | **Usage** |
     |-------------------------|--------------------------------------------|
     | XilEnvGui.exe           | OpenXilEnv application itself (it is a 64bit application regardless its name) |
@@ -427,7 +427,7 @@ The directories contain one or more of the following programme packages OpenXilE
     | ExtProc_FMULoader32.exe | Extern process needed to execute a 32 bit FMU |
     | ExtProc_FMULoader64.exe | Extern process needed to execute a 64 bit FMU |
     | Samples64/32            | Directory with some sample projects        |
-    
+
 
 1.  Start XilEnvGui without parameter
 
@@ -487,7 +487,7 @@ Through the menu item **Settings =\> Basic Settings** the default setting can be
 
 6.  Which priority does OpenXilEnv have under Windows (ignored by HiL). Best setting is „PRIORITY_IDLE". This means every other program have priority. Possible values are:
 
-      
+
       |Prorotity name                     | Description |
       |-----------------------------------|-----------------------------------|
       PRIORITY_NORMAL_NO_SLEEP            |OpenXilEnv have the same proroity as all other applications. If it have to wait (not faster than realtime) it will not call a sleep function it will wait inside a occupation loop. This will be result in thebest realtime behaviour.
@@ -495,7 +495,7 @@ Through the menu item **Settings =\> Basic Settings** the default setting can be
       PRIORITY_BELOW_NORMAL               |OpenXilEnv have a lower proroity as all other applications.
       PRIORITY_LOWEST                     |OpenXilEnv have a lowest proroity.
       PRIORITY_IDLE                       |OpenXilEnv will only run if no other application want to be executed. This is the default behaviour.
-      
+
         [BasicSettings]
           ...
           Priority=PRIORITY_IDLE
@@ -805,7 +805,7 @@ The tab \"remote master\" is only usefull for the HIL option. Here you can confi
            RemoteMasterCopyTo=/tmp/LinuxRemoteMaster.out
           ...
 
-If "switch off automatic save of INI-File" is activated, the INI-file will not be saved automatically at the end of program (all changes will be lost). Afterwards the files can be saved manually through the menu **File =\> Save** or **Save as** only. 
+If "switch off automatic save of INI-File" is activated, the INI-file will not be saved automatically at the end of program (all changes will be lost). Afterwards the files can be saved manually through the menu **File =\> Save** or **Save as** only.
 
 ###  3.6. <a name='Hotkeys'></a>Hotkeys
 
@@ -872,14 +872,14 @@ A screenshot of the main window with a text, enum, oscilloscope, calibration map
 
 ###  5.1. <a name='Generalinformationofthecontrolpanel'></a> General information of the control panel
 
-The internal functions are controlled through the control panel. It is always in the foreground and divided into four sections. 
+The internal functions are controlled through the control panel. It is always in the foreground and divided into four sections.
 
 ###  5.2. <a name='Run-Control'></a> Run-Control
 
 The execution of all processes can be interrupted manually or with a breakpoint in this section of the panel.
 
 ![](./Images/ControlPanel_RunControl.png)
- 
+
 **Continue** -key continue execution of all processes (internal and external)
 
 **Stop** -key stops execution of all processes (internal and external)
@@ -892,7 +892,7 @@ The execution of all processes can be interrupted manually or with a breakpoint 
 
 If **Breakpoint** is activated there is a verification on the breakpoint condition at the end of a cycle. In this case the execution of every process will be stoped. Single step with **Next one-** or XX-step with **Next**-key.
 
-**Start**-key continue all processes (internal and external) 
+**Start**-key continue all processes (internal and external)
 
 \"Breakpoints\" can be set with STOP_OpenXiLEnv-command in the script-program. Also see in chapter „*Script debug window*".
 
@@ -904,7 +904,7 @@ Process administration **Add\...** offers a variety of all not yet started inter
 
 (Within the HIL option there is possibility to start external processes)
 
-**Remove\...** offers the possibility to shut down processes. There is no separation between internal and external processes. Retrice the current status of processes by the use of the **Info\...-**key. 
+**Remove\...** offers the possibility to shut down processes. There is no separation between internal and external processes. Retrice the current status of processes by the use of the **Info\...-**key.
 
 ###  5.4. <a name='Blackboard'></a> Blackboard
 
@@ -956,10 +956,10 @@ Additional to that the input can be made in a text line
 **Syntax:**
 
 The description of the text replacement consists of single blocks, that must be separated with semicolons. A block consists of a start- and end-value and a text replacement string. If the value of the variable \>= start value and \<= end value this block is evaluated as text replacement. Watch out for the ascending order of start- and end values. (start value block 1 \<= end value block 1 \< start value block 2 \<= end value block 2 \...). The text replacement string has to be put in quotation marks e.g.: \"text\" and additional to that it can contain color information: e.g.: \"RGB(2e5:0x7F:0)Text\". There must be RGB-macro **within** the quotation marks! It is recommended to use the configuration dialogue.
- 
+
 If a \* is used as start value of the first block, it means -infinity. If a \* is used as end value of the last block, it means +infinity. When no block is true, the text replacement is always \"out of range\".
 
-Example: 
+Example:
     0 0 "off"; 1 1 "on"; 2 \* "undaf";
 
 
@@ -1077,7 +1077,7 @@ To change the default settings do a right-click into the oscilloscope-window or 
 |--------------|-------------------------------------------------------|
 | Windowstepping         | Step size in percent which the windows scrolls. When a graph touch the border of the window, it will be moved left by the chosen percentage.                  |
 | Buffer depth | How many mesh points are saved in a ringbuffer (looking back to the past). min. 1024 and max. 1000000.                                              |
-| display left axis | show left axis 
+| display left axis | show left axis
 | display right axis     | show right axis          |
 | Trigger      | possible triggering: variable \> value that means rising slope or variable \< value that means falling slope. <br> If the variable is chosen as "@trigger not active" the trigger function is inactive. <br> If "Single shot" is activated the internal buffer will be filled up with measured values after triggering and go to offline-mode automatically. By \"pre trigger\" the time period before triggering can be set.                                               |
 
@@ -1128,7 +1128,7 @@ OpenXilEnv has no direct printing function. But it has an interface to the clipb
 
 ###  6.4. <a name='Tachometer'></a>Tachometer
 
-![](./Images/Tacho.jpg)
+![](./Images/Tacho.png)
 
 Right-click (right mouse button), double-click (left mouse button) or **Display --> Config** opens the configuration-dialogue for the active tachometer:
 
@@ -1190,7 +1190,7 @@ Control lamps are elements for coloured display of states (example indicator). F
 
 6.  Position and size of the lamps within the grid
 
-7.  Choice of lamp-form. There are predefined forms but it is also possible to define a new one with the \"Add\"-button. Syntax: The outlines are described by a list of points. A list starts up with a bracket, followed by a plus or minus. Plus means a polygon filled with the foreground colour. Minus means a polygon filled with the background colour. Plus or minus is followed by the corners of the polygon y0/x0;y1/x1;x2/x2;. The value range of x and y is 0.0 to 1.0. The definition of the polygon is conclued by an ending-bracket. The polygons are handled from left/top to right/bottom. 
+7.  Choice of lamp-form. There are predefined forms but it is also possible to define a new one with the \"Add\"-button. Syntax: The outlines are described by a list of points. A list starts up with a bracket, followed by a plus or minus. Plus means a polygon filled with the foreground colour. Minus means a polygon filled with the background colour. Plus or minus is followed by the corners of the polygon y0/x0;y1/x1;x2/x2;. The value range of x and y is 0.0 to 1.0. The definition of the polygon is conclued by an ending-bracket. The polygons are handled from left/top to right/bottom.
 
 Example:
 
@@ -1202,7 +1202,7 @@ Example:
 
 An enum-window contains the display of one or more status-variables. Only variables with conversion type \"text replace\" can be displayed.
 
-Example: conversion of EnumVar: 
+Example: conversion of EnumVar:
 
     0 0 \"RGB(0xC0:0xC0:0xC0)Off\";1 1 \"RGB(0xFF:0x00:0x00)On\";2 \* \"RGB(0xFF:0xFF:0x00)undef\"; Conversion of pos:0 0 \"P\";1 1 \"R\";2 2 \"N\";3 3 \"D\";
 
@@ -1253,7 +1253,7 @@ All OpenXilEnv-functions are implemented into two groups of processes:
 
 ###  8.2. <a name='Internalprocesses'></a>Internal processes
 
-| **Process name** | **Description** | 
+| **Process name** | **Description** |
 |-------------------------------|--------------------------------------|
 | SignalGeneratorCompiler       | This process compiles generator-files                      |
 | SignalGeneratorCalculator     | This process executes generator files                                |
@@ -1299,7 +1299,7 @@ A ramp definition is always introduced by the keyword \"RAMPE\" followed by the 
 
     RAMPE Signal 800/0 2000/2.3 4000/2.7
     4000/3 800/3.5 800/10
-                
+
 
 A value/time-pair can be created variable within certain thresholds. A variable sample point has to be specified by brackets for value-respectively time-information. Within these brackets there can be a calculation that includes constances (+-\[0-9\]e+-\[0-9\]), all variables and the following operators: +, -, \*, /, &, \|, \>, \<, \>=, \<=, ==, !=, &&, \|\|, !, &, \|, \^, \>\>, \<\<, (, ), sin(), cos(), tan(), asin(), acos(), atan(), exp(), pow(), sqrt(), log(), log10(), and(in,bits), or(in,bits), xor(in,bits), invert(in), getbits(in,bitoffset,bitsize), setbits(in,bitoffset,bitsize,bits), andbits(in,bitoffset,bitsize,bits), orbits(in,bitoffset,bitsize,bits), xoebits(in,bitoffset,bitsize,bits), round(v), round_up(v), round_down(v), ...
 
@@ -1313,7 +1313,7 @@ The evaluation of variable sample points occurs one sample point earlier and is 
     100/(2.5 + peek_time) ;for variable specification
     50/(2.5 + 2 * peek_time) ;the brackets are required!!
     50/10
-                
+
 
 If the variable that should be stimulated available at the first sample point, a soft trapping of a variable is possible (no jump for unknow start value).
 
@@ -1358,16 +1358,16 @@ data type BB_UWORD
 
     b = 200;
     a = b + 100;
-    
+
     result: a = 255 and b = 200
-    
+
     b = a = 500;
-    
+
     result: a =255 and b = 500
-    
+
     a = 500;
     b = a;
-    
+
     result: a =255 and b = 255
 
 
@@ -1387,14 +1387,14 @@ Example of a player configuration file
 
     ; Start condition
     TRIGGER Gen_Start > 0.5
-    
+
     ; which variables should be recorded
     STARTVARLIST
     VARIABLE Signal1
     VARIABLE Signal2
     VARIABLE Signal3
     ENDVARLIST
-                
+
 
 These stand for:
 
@@ -1455,7 +1455,7 @@ Example of a recorder-configuration file
     ; additional all variables of the process TEST.EXE
     ALL_LABEL_OF_PROCESS TEST.EXE
     ENDVARLIST
-                
+
 
 These stand for:
 
@@ -1549,7 +1549,7 @@ The best way to set up a new project is to copy on of the sample project out of 
 
 **-cn:m**: External process is only called each n cycles with m cycles delay.
 
-Example: 
+Example:
 
     hn1.exe -q1 -c5:2 (hn1.exe tries to connect to SC within 1 second and is only called each 5 SC-cycles with a delay of 2 SC-cycles)
 
@@ -1568,7 +1568,7 @@ All interfaces to OpenXilEnv are defined in the header XilEnvExtProc.h and XilEn
 ##### reference_varis
 
                         void reference_varis (void)
-                    
+
 
 All referencing should be made here (publish the addresses of variables). For referencing the following macros are defined in XilEnvExtProc.h, thereby XXX stands for the particular datatype: BYTE, UBYTE, WORD, UWORD, DWORD, UDWORD, QWORD, UQWORD, FLOAT, DOUBLE, SI8, UI8, SI16, UI16, SI32, UI32:
 
@@ -1629,7 +1629,7 @@ When name and symbol should be identical (most common case) the following macro 
 |READ_ONLY_REFERENCE                | The variable will only copied fromblackboard to the extern process before the cyclic method, but not back |
 WRITE_ONLY_REFERENCE                | The variable will not copied from before the cyclic method but copiedafter it to the blackboad.
 READ_WRITE_REFERENCE                | The variable will copied formblackboard and after the cyclicmethod back.
- 
+
 **Name:** Name in the blackboard as string
 
 **Unit:** Unit in the blackboard ass string
@@ -1666,21 +1666,21 @@ void RefVarAllInfos(XXX \*arg_ptr_Var, char \*arg_ptr_Name, char \*arg_ptr_Unit,
 ##### init_test_object
 
         int init_test_object (void)
-                    
+
 
 The initialization of the ECU should be carried out here. When no error occurs, return 0. If a value unequal 0 is returned, the process is shut down imediately.
 
 ##### cyclic_test_object
 
         void cyclic_test_object (void)
-                
+
 
 This function is called cyclical, as long as the external process (ECU) runs.
 
 ###### terminate_test_object
 
         void terminate_test_object (void)
-                
+
 
 This function is called when the external process is ending.
 
@@ -1742,7 +1742,7 @@ Examples
     /* This will be called if the external processs will be terminated */
     void terminate_test_object (void)
     {
-    }                
+    }
 
 Each external process can get the OpenXilEnv command line handed over as parameter. Example:
 
@@ -1764,7 +1764,7 @@ For each external process it is possible to control their variables, which are r
 
 **Range error counter:** Here could be a blackboard variable specified, which will be incremented for each value range exeedance. Datatype is UDWORD.
 
-**Control variable:** Here could be a blackboard variable specified, whereby the value range control can be switched on or off (0 means off, 1 means on). Datatype is UDWORD. 
+**Control variable:** Here could be a blackboard variable specified, whereby the value range control can be switched on or off (0 means off, 1 means on). Datatype is UDWORD.
 
 **Physical:** The value of the variable is converted through the blackboard-registered conversion before the comparison. If no conversion is specified, the raw value is compared.
 
@@ -1908,7 +1908,7 @@ Waits for the state 'HDPLAY' of the process "StimuliPlayer".
 
 This can be used e.g. for synchronization of several STARTxxx-commands.
 
-The execution of the scriptfile is stopped until the started player-file is completed 
+The execution of the scriptfile is stopped until the started player-file is completed
 
 ##### SET_BBVARI / SET (bbvari = euqation)
 
@@ -2011,8 +2011,8 @@ Delete the file with the name *filename*.
 
 Change to current directory (like the DOS-command).
 
-Example: 
-    
+Example:
+
     'CD (c:\\script')
 
 ##### MD (directory)
@@ -2083,7 +2083,7 @@ Is used for leaving a while-loop prematurely.
 
 ##### WAIT_UNTIL (Condition, Timeout, \[STOP/CONT/GOTO/GOSUB/CALL_PROC \[,\...\], Timeout-message, \[message-parameter1, ...\]\])
 
-The instruction WAIT_UNTIL can interrupt the execution of the script until the condition is true or the timeout passed. The timeout is specified in cycles. Additional to that the behaviour for a timeout can be defined optionally. It can be set by the 3rd parameter either as STOP: aborts the script, or CONT: continue the execution of the script. If no 3rd parameter is existing, the script is will not be stopped (CONT by default). Furthermore the keywords GOTO, GOSUB, CALL_PROC are allowed. 
+The instruction WAIT_UNTIL can interrupt the execution of the script until the condition is true or the timeout passed. The timeout is specified in cycles. Additional to that the behaviour for a timeout can be defined optionally. It can be set by the 3rd parameter either as STOP: aborts the script, or CONT: continue the execution of the script. If no 3rd parameter is existing, the script is will not be stopped (CONT by default). Furthermore the keywords GOTO, GOSUB, CALL_PROC are allowed.
 
 An additional last parameter can be displayed as message in case of a timeout. All following parameters comply with the %z/%x elements in the message text(equal to the MESSAGE-instruction).
 
@@ -2186,7 +2186,7 @@ The command START_PROCESS_EX starts an internal or external process. Additional 
 
 **Priorität\[opt\]:** determination of the execution order of processes. The process having the lowest priority is carried out at first per cycle.
 
-**Periode\[Opt\]:** factor specifying the number of OpenXilEnv-cycles after that a process should be called cyclic. 
+**Periode\[Opt\]:** factor specifying the number of OpenXilEnv-cycles after that a process should be called cyclic.
 
 **Delay\[opt\]:** delayed call
 
@@ -2212,7 +2212,7 @@ The command START_PROCESS_EX starts an internal or external process. Additional 
 
 **RangeCotrolErrorCounter\[opt\]:** Defines a blackboard-variable where in each appearance of a value range overflow is counted. The data type is UDWORD.
 
-**RangeControlVariable\[opt\]:** Defines a blackboard-variable to switch off the value range control: 
+**RangeControlVariable\[opt\]:** Defines a blackboard-variable to switch off the value range control:
 
 == 0: no value range control
 
@@ -2364,7 +2364,7 @@ Loads a CAN-variant and assigns it to a CAN-channel. If there are already assign
     DELAY (100)
     START_PROCESS (NewCSNServer)
 
-                
+
 The sample code first remove all CAN variants. Than load 3 variants Basis.can, TCU.can and speedrangeselector.can and connect all 3 to the channel 1. At least the CAN-Server will be restarted with the new configuration.
 
 ##### LOAD_CAN_VARIANT(Filename, Channel)
@@ -2377,7 +2377,7 @@ Loads a CAN-variant and assigns it to a CAN-channel. The channel counts from 1. 
     STOP_PROCESS (NewCANServer)
     DELAY (100)
     START_PROCESS (NewCANServer)
-                
+
 
 The sample code first remove all CAN variants. Than load one variants vehicle.can, and connet this to the cannel 1. Than load one variant labcar.can and connet this to the channel 2. At least the CAn-Server will be restarted with the new configuration.
 
@@ -2392,7 +2392,7 @@ Adds all CAN-objects defined in \"filename\" to the CAN variant which is associa
     STOP_PROCESS (NewCANServer)
     DELAY (100)
     START_PROCESS (NewCSNServer)
-                
+
 
 The sample code first remove all CAN variants. Than load variants Basis.can and connet this to the channel 1. Afterwards append all CAN objects from variante TCU.can to the variant connected to cannel 1. Then append all CAN objects from variante speedrangeselector.can to the variant connected to cannel 1. The result is one variante with the name from Basis.can includes all CAN object form Basis.can, TCU.can and speedrangeselector.can. At least the CAN-Server will be restarted with the new configuration.
 
@@ -2416,11 +2416,11 @@ One-time sending a CAN-message through the CAN-bus independent of the CAN-config
     /* 11bit ID, 8 Data-Bytes */
     TRANSMIT_CAN (0, 0x12345678, Ext, 4, 1, 2, 3, 4)
     /* 29bit ID, 4 Data-Bytes */
-                
+
 
 ##### SET_CAN_ERR (Channel, Id, Startbit, Bitsize, Byteorder, Cycles, ErrValue)
 
-SET_CAN_ERR overwrites the number „Bitsize" of bits from bit-position „Startbit" of the CAN-send message with identifier „Id" on the CAN-channel „Channel" with the value „ErrValue" for the duration „Cycles". The parameter „Byteorder" can be set to INTEL or MOTOROLA. 
+SET_CAN_ERR overwrites the number „Bitsize" of bits from bit-position „Startbit" of the CAN-send message with identifier „Id" on the CAN-channel „Channel" with the value „ErrValue" for the duration „Cycles". The parameter „Byteorder" can be set to INTEL or MOTOROLA.
 
 Special cases:
 
@@ -2440,7 +2440,7 @@ CLEAR_CAN_ERR stops the overwriting of Bit within a CAN-message before the end o
 
 Works equal to BASIC. That means that there is a jump to a specified place in the script programm. Jump labels are specified as „**:JUMP LABEL**".
 
-A jump label may only appear once in the main file respectively all related sub script files. A GOTO in the main file must not target at a sub script file, it would cause problems! It must not be used to jump from WHILE-loops into another WHILE-loop. 
+A jump label may only appear once in the main file respectively all related sub script files. A GOTO in the main file must not target at a sub script file, it would cause problems! It must not be used to jump from WHILE-loops into another WHILE-loop.
 
 Jump labels may only include alphabetic character, numbers or an underline \'\_\' !
 
@@ -2477,7 +2477,7 @@ Starts an executable program without waiting for the end of this program. Can be
 Example: Calling a diff.-comparison:
 
     START_EXE(cleartool,diff,-graphical,Script1.msg,Script2.msg)
-                
+
 
 ##### WAIT_EXE
 
@@ -2489,7 +2489,7 @@ Waits to proceed the processing of the script file and (new since V5.00) other O
 
 This instruction loads and references a list of variables, saved in the ASCII-file named *reflist-filename*, for the process called *process-filename*. The reflist-filename-file can be generated with the instruction SAVE_REF_LIST. When loading the file, all manual referenced variables and/or a referenced list loaded before, are dereferenced.
 
-Example: 
+Example:
 
     LOAD_REF_LIST(reflist.txt, C:\\GSE24\\NEW\\SCRWIN.EXE).
 
@@ -2499,7 +2499,7 @@ Example:
 
 This instruction leads to a storage of the manual references from the process *process-filename* into the file reflist-filename.
 
-Example: 
+Example:
 
     SAVE_REF_LIST(reflist.txt, C:\\GSE24\\NEW\\SCRWIN.EXE).
 
@@ -2507,11 +2507,11 @@ Example:
 
 ##### ADD_REF_LIST (reflist-filename, process-filename)
 
-This instruction load and references a list of variables, saved in the ASCII-file named *reflist-filename*, for the process called *process-filename*. The reflist-filename file can be generated with the instruction SAVE_REF_LIST described in {FEHLENDE REFERENZ!}. 
+This instruction load and references a list of variables, saved in the ASCII-file named *reflist-filename*, for the process called *process-filename*. The reflist-filename file can be generated with the instruction SAVE_REF_LIST described in {FEHLENDE REFERENZ!}.
 
 When loading the file, all manual referenced variables and/or a referenced list loaded before, are **not** dereferenced but new references added.
 
-Example.: 
+Example.:
 
     ADD_REF_LIST(reflist.txt, C:\\GSE24\\NEW\\SCRWIN.EXE).
 
@@ -2553,7 +2553,7 @@ This instruction adds new items of selection, called *selectionname* to the dial
 
 ##### SHOW_DIALOG/SHOW_DLG
 
-Shows the dialogue that was created new by CREATE_DIALOG and some ADD_DIALOG_ITEM and waits for inputs of the user. Afterwards the processing of the other OpenXiLEnv-processes will be continued. 
+Shows the dialogue that was created new by CREATE_DIALOG and some ADD_DIALOG_ITEM and waits for inputs of the user. Afterwards the processing of the other OpenXiLEnv-processes will be continued.
 
 *Hints: Using OpenXilEnv for HiL, the other processes continue! After 15 minutes without an input, the script and dialogue are exit automatically!*
 
@@ -2573,7 +2573,7 @@ VERBOSE (MESSAGE_PREFIX_CYCLE_COUNTER), this display the cycle counter in front 
 
 ##### OPEN_RS232(port, configuration)
 
-The interface can be selected by the port (permitted are e.g.: **COM1** or **COM2**). The configuration must have following settings (these values are examples only): **baud**=1200 **parity**=N **data**=8 **stop**=1. 
+The interface can be selected by the port (permitted are e.g.: **COM1** or **COM2**). The configuration must have following settings (these values are examples only): **baud**=1200 **parity**=N **data**=8 **stop**=1.
 
 *Hint: The additions **dtr**=off **rts**=off can be used to switch off a non-required HW-handshake. The settings can be checked through the MODE-command in a DOS-box!*
 
@@ -2585,7 +2585,7 @@ With this instruction the opened interface can be closed again, e.g.: CLOSE_RS23
 
 This instruction allows to output text strings at an opened serial interface (number is specified with port,e.g.: COM1 or COM2). The text can contain several wildcards with %z. For variname a corresponding blackboard variable can be specified, whose contents are included in the text.
 
-Example: 
+Example:
 
     SEND_RS232(COM1, blablabla %z, variablenname)
 
@@ -2965,7 +2965,7 @@ Example:
         MESSAGE ("MyProc got a=%z b=%z c=%z" , a, b, c)
         END_DEF_PROC
     CALL_PROC (MyProc, 1, 1+1, 3)
-                
+
 
 Example with reference:
 
@@ -2977,7 +2977,7 @@ Example with reference:
         CALL_PROC (MyProc, 1, 2, &c)
         MESSAGE("%z + %z = %z", 1, 2, c)
     END_DEF_LOCALS
-                
+
 
 ##### END_DEF_PROC
 
@@ -2993,7 +2993,7 @@ Example:
         MESSAGE (MyProc got a=%z b=%z c=%z , a, b, c)
         END_DEF_PROC
     CALL_PROC (MyProc, 1, 1+1, 3)
-                
+
 
 ##### DEF_LOCALS (Local_1, Local_2, ..., Local_n)
 
@@ -3007,7 +3007,7 @@ Example:
     SET (c = a + b)
     MESSAGE (Local variable a=%z b=%z c=%z, a, b, c)
     END_DEF_LOCALS
-                
+
 
 ##### END_DEF_LOCALS
 
@@ -3024,7 +3024,7 @@ ExtProc.scr:
     DEF_PROC (MyProc, a, b, c)
     MESSAGE (MyProc got a=%z b=%z c=%z , a, b, c)
     END_DE_PROC
-                
+
 
 Main.scr:
 
@@ -3039,11 +3039,11 @@ This instruction implements a conversion in the active CAN-simulation of the rem
 If **Channel** has the value \'-1\' object/signal are searched on all CAN-channels.
 
 If **ID** has the value \'-1\' the signal is searched on all CAN-channels.
-                
+
 
 ##### RESET_CAN_SIG_CONV (Channel, ID, Signalname)
 
-This instruction resets the changes in the active CAN-simulation of the remaining bus that was carried out by one or more SET_CAN_SIG_CONV-instructions. **Channel** is the CAN-channel number (0...3), **ID** is the CAN-identifier of the object, **Signalname** is the signal in the CAN-object whose conversion should be reset. If the signal name is left out, all changes on the CAN-bus and the chosen object are reset. If **ID** has the value \'-1\' or is left out, all changes in all CAN-objects are reset. If **Channel** has the value \'-1\' or is left out, all changes are reset. 
+This instruction resets the changes in the active CAN-simulation of the remaining bus that was carried out by one or more SET_CAN_SIG_CONV-instructions. **Channel** is the CAN-channel number (0...3), **ID** is the CAN-identifier of the object, **Signalname** is the signal in the CAN-object whose conversion should be reset. If the signal name is left out, all changes on the CAN-bus and the chosen object are reset. If **ID** has the value \'-1\' or is left out, all changes in all CAN-objects are reset. If **Channel** has the value \'-1\' or is left out, all changes are reset.
 
 ##### START_CAN_RECORDER (filename.txt, trigger event, \[TIME\]opt., channel, start id, end id, \[channel, start id, end if\]opt.(10 times))
 
@@ -3114,7 +3114,7 @@ Output: "Windows-directory = C:\\WINDOWS"
 The script command SET_ENV_SYS_VAR and REMOVE_ENV_SYS_VAR can be used to change system environment variable for OpenXilEnv and each afterwards called process.
 
 ###  9.3. <a name='Notesontheinstructions'></a>Notes on the instructions
- 
+
  -   **RS232**-instructions: Using the **MODE**-instruction in a DOS-box the settings of the serial interface can be requested.
 
 -   One line of the script file must not contain **more than 8191 characters**!!!
@@ -3140,7 +3140,7 @@ The script command SET_ENV_SYS_VAR and REMOVE_ENV_SYS_VAR can be used to change 
 -   Between the **intruction word** and an **instruction parameter** (e.g. filename) respectively in from of an instruction word may stand any number of **whitespaces**.
 
 -   For **Variablen names** the upper/lower case is also evaluated**!!!**
- 
+
 -   The instruction ***'RUN/CALL** scriptfile'* may have a nesting depth of up to 20 subprograms calls, that is: Main -\>Uprg1-\>Uprg2\...-\>Uprg5.
 
 -   When filenames have no **path** specified with, the first command should be a \'CD()\', to specify the basic path for all following file accesses.
@@ -3183,7 +3183,7 @@ The following for tabs are available:
 
 -   **Stack**: Inside his tab the current stack are displayed You can see there the function, script calling stack. You can also see the lvalues of local defined variables here.
 
--   **Environment variables**: Inside this tab all user defined environment variables are showen (defined with SET_ENV_VAR). 
+-   **Environment variables**: Inside this tab all user defined environment variables are showen (defined with SET_ENV_VAR).
 
 -   **Parameter lists** : Displays all current defined parameter list (defined with the NEW_PARAM_LIST script comand).
 
@@ -3259,24 +3259,24 @@ When using automated OpenXiLEnv-runnings, that means the executed script will be
 ####  9.5.5. <a name='Examples'></a>Examples
 
 ##  10. <a name='RemoteControl'></a>Remote Control
- 
+
 XiLEnv has a **R**emote **P**rocedure **C**all interface for the automation with external programs (Python,  C++/C, Perl, Java, \...). The following files are needed additionally:
- 
+
 XilEnvRpc.dll: This dll can be used inside a 64 bit executable to use the OpenXilEnv remote API. It has to be placed in the searched path.
- 
+
 include\XilEnvRpc.h: for C und C++ only
- 
+
 XilEnvRpc.py: This file include a wrapper class for python.
 
 ###  10.1. <a name='Connectionbuildupandothers'></a>Connection buildup and others
 
 ####  10.1.1. <a name='XilEnv_ConnectTo'></a>XilEnv_ConnectTo
 
-**C:** 
+**C:**
 
     int XilEnv_ConnectTo(const char\* NetAddr);
 
-**VB:** 
+**VB:**
 
     Public Declare Function XilEnv_ConnectTo (ByVal NetAddr As String) As Long
 
@@ -3292,11 +3292,11 @@ Return value:
 
 ####  10.1.2. <a name='XilEnv_ConnectToInstance'></a>XilEnv_ConnectToInstance
 
-**C:** 
+**C:**
 
     int XilEnv_ConnectToInstance(const char\* NetAddr, const char\* InstanceName);
 
-**VB:** 
+**VB:**
 
     Public Declare Function XilEnv_ConnectToInstance (ByVal NetAddr As String, ByVal InstanceName As String) As Long
 
@@ -3312,11 +3312,11 @@ Return value:
 
 ####  10.1.3. <a name='XilEnv_DisconnectFrom'></a>XilEnv_DisconnectFrom
 
-**C:** 
+**C:**
 
     int XilEnv_DisconnectFrom(void);
 
-**VB:** 
+**VB:**
 
     Public Declare Function XilEnv_DisconnectFrom () As Long
 
@@ -3329,27 +3329,27 @@ Return value is always 0.
 **C:**
 
     int XilEnv_DisconnectAndClose(int SetErrorLevelFlag, int ErrorLevel);
-             
+
 
 **VB:**
 
-    Declare Function XilEnv_DisconnectAndClose 
+    Declare Function XilEnv_DisconnectAndClose
         (ByVal SetErrorLevelFlag As Long, ByVal ErrorLevel As Long) As Long
-             
 
-\'XilEnv_DisconnectAndClose\' close the connection to OpenXilEnv and close it. if the value of SetErrorLevelFlag is not zero OpenXilEnv give back \"ErrorLevel\" as exit code. The return value of ths function is always zero. 
+
+\'XilEnv_DisconnectAndClose\' close the connection to OpenXilEnv and close it. if the value of SetErrorLevelFlag is not zero OpenXilEnv give back \"ErrorLevel\" as exit code. The return value of ths function is always zero.
 
 ####  10.1.5. <a name='XilEnv_IsConnectedTo'></a>XilEnv_IsConnectedTo
 
 **C:**
 
     int XilEnv_IsConnectedTo(void);
-             
+
 
 **VB:**
 
     Declare Function XilEnv_IsConnectedTo () As Long
-             
+
 
 \'XilEnv_IsConnectedTo\' checks if a connection to OpenXilEnv exists. Return value is \'1\' when a connection exists, otherwise the return value is \'0\'
 
@@ -3358,12 +3358,12 @@ Return value is always 0.
 **C:**
 
     int XilEnv_GetVersion(void);
-             
+
 
 **VB:**
 
     Declare Function XilEnv_GetVersion () As Long
-             
+
 
 \'XilEnv_GetVersion\' returns the version of OpenXilEnv. You have to call the function \'XilEnv_ConnectTo\' before. The return version number is the OpenXilEnv version mutiplyed by 100.
 
@@ -3372,12 +3372,12 @@ Return value is always 0.
 **C:**
 
     int XilEnv_GetAPIVersion(void);
-             
+
 
 **VB:**
 
     Declare Function XilEnv_GetAPIVersion () As Long
-             
+
 
 \'XilEnv_GetAPIVersion\' returns the version of library OpenXilEnv. You can call the function before \'XilEnv_ConnectTo\'. The return version number is the OpenXilEnv version mutiplyed by 100.
 
@@ -3386,12 +3386,12 @@ Return value is always 0.
 **C:**
 
     char* XilEnv_GetAPIModulePath (void);
-             
+
 
 **VB:**
 
     Declare Function XilEnv_GetAPIModulePath () As String
-             
+
 
 \'XilEnv_GetAPIModulePath\' returns the location path of the loaded library. You can call the function before \'XilEnv_ConnectTo\'.
 
@@ -3400,15 +3400,15 @@ Return value is always 0.
 **C:**
 
     int XilEnv_CreateFileWithContent (const char *Filename, const char *Content);
-             
+
 
 **VB:**
 
     Public Declare Function XilEnv_CreateFileWithContent
         (ByVal Filename As String, ByVal Content As String) As Long
-                
 
-\'XilEnv_CreateFileWithContent\' saves a string '[Content]{.Source .Char}' to a file '[Filename]{.Source .Char}' from the view of OpenXilEnv. The current path-postion from the calling program is not significant. 
+
+\'XilEnv_CreateFileWithContent\' saves a string '[Content]{.Source .Char}' to a file '[Filename]{.Source .Char}' from the view of OpenXilEnv. The current path-postion from the calling program is not significant.
 
 Return \'0\' when everything is OK, \'-1\' when the file could not be created or \'-2\' when not the complete contents could be written (full disk).
 
@@ -3420,7 +3420,7 @@ Return \'0\' when everything is OK, \'-1\' when the file could not be created or
 
 **VB:**
 
-    Public Declare Function XilEnv_SetEnvironVar (ByVal EnvironVar As String, 
+    Public Declare Function XilEnv_SetEnvironVar (ByVal EnvironVar As String,
         ByVal EnvironValue As String) As Long
 
 Set the value of a OpenXilEnv environment-variable. If the environment-variable doesn't exists it will be added. If it exists the value will be changed. You cannot overwrite fixed or system environment-variable.
@@ -3435,7 +3435,7 @@ Set the value of a OpenXilEnv environment-variable. If the environment-variable 
 
     Public Declare Function XilEnv_GetEnvironVar (ByVal EnvironVar As String) As String
 
-Returns the value of a OpenXilEnv environment-variable. 
+Returns the value of a OpenXilEnv environment-variable.
 
 ####  10.1.12. <a name='XilEnv_ChangeSettings'></a>XilEnv_ChangeSettings
 
@@ -3456,7 +3456,7 @@ Changes the global settings of OpenXilEnv. The following settings are changeable
 **C:**
 
     int SCTextOut (const char *Text);
-                
+
 
 Outputs a text in the OpenXilEnv-message-window and writes it into the \'Script.msg\'-file.
 
@@ -3465,7 +3465,7 @@ Outputs a text in the OpenXilEnv-message-window and writes it into the \'Script.
 **C:**
 
     int SCErrorTextOut (int ErrLevel, const char *Text);
-                
+
 
 Outputs an error message in OpenXilEnv. Following error-levels are defined:
 
@@ -3583,7 +3583,7 @@ Return value:
 
 **VB:**
 
-    Public Declare Function XilEnv_StartProcessAndLoadSvl (ByVal Name As String, 
+    Public Declare Function XilEnv_StartProcessAndLoadSvl (ByVal Name As String,
         ByVal SvlName As String) As Long
 
 XilEnv_StartProcessAndLoadSvl starts an external OpenXilEnv-process and load directly a SVL file if the process is successful.
@@ -3603,11 +3603,11 @@ Return value:
 **C:**
 
     int XilEnv_StartProcessEx(const char* ProcessName,
-                          int Prio, 
-                          int Cycle, 
-                          short Delay, 
-                          int Timeout, 
-                          const char *SVLFile, 
+                          int Prio,
+                          int Cycle,
+                          short Delay,
+                          int Timeout,
+                          const char *SVLFile,
                           const char *BBPrefix,
                           int UseRangeControl,
                           int RangeControlBeforeActiveFlags,
@@ -3678,11 +3678,11 @@ Return value:
 **C:**
 
     int XilEnv_StartProcessEx2(const char* ProcessName,
-                           int Prio, 
-                           int Cycle, 
-                           short Delay, 
-                           int Timeout, 
-                           const char *SVLFile, 
+                           int Prio,
+                           int Cycle,
+                           short Delay,
+                           int Timeout,
+                           const char *SVLFile,
                            const char *BBPrefix,
                            int UseRangeControl,
                            int RangeControlBeforeActiveFlags,
@@ -3786,7 +3786,7 @@ Return value:
 
 **VB:**
 
-    Public Declare Function XilEnv_GetNextProcess (ByVal flag As Long, 
+    Public Declare Function XilEnv_GetNextProcess (ByVal flag As Long,
         ByVal filter As String) As String
 
 XilEnv_GetNextProcess return the name of the running OpenXilEnv-process (internal or external).
@@ -3835,10 +3835,10 @@ Return value:
 
 **VB:**
 
-    Public Declare Function XilEnv_AddBeforeProcessEquationFromFile (ByVal Nr As Long, 
+    Public Declare Function XilEnv_AddBeforeProcessEquationFromFile (ByVal Nr As Long,
         ByVal ProcName As String, ByVal EquFile As String) As Long
 
-XilEnv_AddBeforeProcessEquationFromFile added an equation block \"EquFile\" before a process \"ProcName\". The block number \"Nr\" can be defined free in the range 1 and above. If \"Nr\" is 1 a reference the equation file is writte to the INI file. This equation file will be loaded afterward each time the the procress is started. 
+XilEnv_AddBeforeProcessEquationFromFile added an equation block \"EquFile\" before a process \"ProcName\". The block number \"Nr\" can be defined free in the range 1 and above. If \"Nr\" is 1 a reference the equation file is writte to the INI file. This equation file will be loaded afterward each time the the procress is started.
 
 Return value:
 
@@ -3858,7 +3858,7 @@ Return value:
 
 **VB:**
 
-    Public Declare Function XilEnv_AddBehindProcessEquationFromFile (ByVal Nr As Long, 
+    Public Declare Function XilEnv_AddBehindProcessEquationFromFile (ByVal Nr As Long,
         ByVal ProcName As String, ByVal EquFile As String) As Long
 
 XilEnv_AddBehindProcessEquationFromFile added an equation block \"EquFile\" behinde a process \"ProcName\". The block number \"Nr\" can be defined free in the range 1 and above. If \"Nr\" is 1 a reference the equation file is writte to the INI file. This equation file will be loaded afterward each time the the procress is started.
@@ -3881,7 +3881,7 @@ Return value:
 
 **VB:**
 
-    Public Declare Function XilEnv_DelBeforeProcessEquations (ByVal Nr As Long, 
+    Public Declare Function XilEnv_DelBeforeProcessEquations (ByVal Nr As Long,
         ByVal ProcName As String) As Long
 
 XilEnv_DelBeforeProcessEquations delete an equation block which is loaded with the block number \"Nr\". If the blocknumber is set to -1 all equations are deleted.
@@ -3894,14 +3894,14 @@ XilEnv_DelBeforeProcessEquations delete an equation block which is loaded with t
 
 **VB:**
 
-    Public Declare Function XilEnv_DelBehindProcessEquations (ByVal Nr As Long, 
+    Public Declare Function XilEnv_DelBehindProcessEquations (ByVal Nr As Long,
         ByVal ProcName As String) As Long
 
 XilEnv_DelBehindProcessEquations delete an equation block which is loaded with the block number \"Nr\". If the blocknumber is set to -1 all equations are deleted.
 
 ####  10.5.3. <a name='XilEnv_WaitUntil'></a>XilEnv_WaitUntil
 
-**C:** 
+**C:**
 
     int XilEnv_WaitUntil (const char \*Equation, int Cycles);
 
@@ -3913,11 +3913,11 @@ The return value is the rest of cycles (not elapsed cycles).
 
 ####  10.6.1. <a name='XilEnv_StartScript'></a>XilEnv_StartScript
 
-**C:** 
+**C:**
 
     int XilEnv_StartScript(unsigned char\* scrfile);
 
-**VB:** 
+**VB:**
 
     Public Declare Function XilEnv_StartScript (ByVal scrfile As String) As Long
 
@@ -3927,11 +3927,11 @@ Return value is always \'0\'.
 
 ####  10.6.2. <a name='XilEnv_StopScript'></a>XilEnv_StopScript
 
-**C:** 
+**C:**
 
     int XilEnv_StopScript(void);
 
-**VB:** 
+**VB:**
 
     Public Declare Function XilEnv_StopScript () As Long
 
@@ -3939,11 +3939,11 @@ XilEnv_StopScript stops a running script-file.
 
 ####  10.6.3. <a name='XilEnv_StartRecorder'></a>XilEnv_StartRecorder
 
-**C:** 
+**C:**
 
     int XilEnv_StartRecorder(unsigned char\* cfgfile);
 
-**VB:** 
+**VB:**
 
     Public Declare Function XilEnv_StartRecorder (ByVal cfgfile As String) As Long
 
@@ -3955,11 +3955,11 @@ Return value is always \'0\'.
 
 ####  10.6.4. <a name='XilEnv_StopRecorder'></a>XilEnv_StopRecorder
 
-**C:** 
+**C:**
 
     int XilEnv_StopRecorder(void);
 
-**VB:** 
+**VB:**
 
     Public Declare Function XilEnv_StopRecorder () As Long
 
@@ -3967,11 +3967,11 @@ XilEnv_StopRecorder stops an active recording.
 
 ####  10.6.5. <a name='XilEnv_StartPlayer'></a>XilEnv_StartPlayer
 
-**C:** 
+**C:**
 
     int XilEnv_StartPlayer(unsigned char\* cfgfile)
 
-**VB:** 
+**VB:**
 
     Public Declare Function XilEnv_StartPlayer (ByVal cfgfile As String) As Long
 
@@ -3986,29 +3986,29 @@ Visual-Basic example:
 Starts a Stimuli-Player and waits for the end of the Stimuli-file.
 
     Sub Stimuli()
-        Dim Ret As Long 
+        Dim Ret As Long
         Dim vid As Long
-            
+
         vid = XilEnv_AddVari("HD_Play", 1, "")
         Ret = XilEnv_StartGenerator("c:\schrott\dummy.cfg") ' Wait until the player is running
-                    
+
         Do Until XilEnv_Get(vid) = 2
             Ret = DoEvents()
         Loop    ' Wait until Stimuli is ended
-                    
+
         Do Until XilEnv_Get(vid) = 0
             Ret = DoEvents()
         Loop
     End Sub
-                
+
 
 ####  10.6.6. <a name='XilEnv_StopPlayer'></a>XilEnv_StopPlayer
 
-**C:** 
+**C:**
 
     int XilEnv_StopPlayer(void);
 
-**VB:** 
+**VB:**
 
     Public Declare Function XilEnv_StopPlayer ()
 
@@ -4016,11 +4016,11 @@ XilEnv_StopPlayer stops an active recording.
 
 ####  10.6.7. <a name='XilEnv_StartEquations'></a>XilEnv_StartEquations
 
-**C:** 
+**C:**
 
     int XilEnv_StartEquations(unsigned char\* equfile)
 
-**VB:** 
+**VB:**
 
     Public Declare Function XilEnv_StartEquations (ByVal equfile As String) As Long
 
@@ -4032,11 +4032,11 @@ Return value is always \'0\'.
 
 ####  10.6.8. <a name='XilEnv_StopEquations'></a>XilEnv_StopEquations
 
-**C:** 
+**C:**
 
     int XilEnv_StopEquations(void);
 
-**VB:** 
+**VB:**
 
     Public Declare Function XilEnv_StopEquations ()
 
@@ -4065,27 +4065,27 @@ Starts the ramp-generator and waits until all ramps are ended.
     Sub Rampe()
         Dim Ret As Long
         Dim vid As Long
-                    
+
         vid = XilEnv_AddVari("Generator", 1, "")
         Ret = XilEnv_StartGenerator("c:\schrott\dummy.gen")     ' Wait until ramp runs
-                    
+
         Do Until XilEnv_Get(vid) = 2
             Ret = DoEvents()
         Loop                                                ' Wait until ramp is ended
-                    
+
         Do Until XilEnv_Get(vid) = 0
             Ret = DoEvents()
         Loop
     End Sub
-                
+
 
 ####  10.6.10. <a name='XilEnv_StopGenerator'></a>XilEnv_StopGenerator
 
-**C:** 
+**C:**
 
     int XilEnv_StopGenerator(void);
 
-**VB:** 
+**VB:**
 
     Public Declare Function XilEnv_StopGenerator ()
 
@@ -4095,11 +4095,11 @@ XilEnv_StopGenerator stops all ramp calculations.
 
 ####  10.7.1. <a name='XilEnv_LoadDsktop'></a>XilEnv_LoadDsktop
 
-**C:** 
-    
+**C:**
+
     int XilEnv_LoadDsktop(unsigned char\* file);
 
-**VB:** 
+**VB:**
 
     Public Declare Function XilEnv_LoadDsktop (ByVal file As String) As Long
 
@@ -4113,11 +4113,11 @@ Return value:
 
 ####  10.7.2. <a name='XilEnv_SaveDsktop'></a>XilEnv_SaveDsktop
 
-**C:** 
+**C:**
 
     int XilEnv_SaveDsktop(unsigned char\* file);
 
-**VB:** 
+**VB:**
 
     Public Declare Function XilEnv_SaveDsktop (ByVal file As String) As Long
 
@@ -4131,11 +4131,11 @@ Return value:
 
 ####  10.7.3. <a name='XilEnv_CreateDialog'></a>XilEnv_CreateDialog
 
-**C:** 
+**C:**
 
     int XilEnv_CreateDialog(const char\* DialogName);
 
-**VB:** 
+**VB:**
 
     Public Declare Function XilEnv_CreateDialog (ByVal DialogName As String) As Long
 
@@ -4151,11 +4151,11 @@ Return value
 
 ####  10.7.4. <a name='XilEnv_AddDialogItem'></a>XilEnv_AddDialogItem
 
-**C:** 
+**C:**
 
     int XilEnv_AddDialogItem(const char\* Description, const char \*VariName);
 
-**VB:** 
+**VB:**
 
     Public Declare Function XilEnv_AddDialogItem (ByVal Description As String, ByVal VariName As String) As Long
 
@@ -4171,11 +4171,11 @@ Return value:
 
 ####  10.7.5. <a name='XilEnv_ShowDialog'></a> XilEnv_ShowDialog
 
-**C:** 
+**C:**
 
     int XilEnv_ShowDialog(void);
 
-**VB:** 
+**VB:**
 
     Public Declare Function XilEnv_ShowDialog () As Long
 
@@ -4193,11 +4193,11 @@ Return value:
 
 ####  10.7.6. <a name='XilEnv_IsDialogClosed'></a>XilEnv_IsDialogClosed
 
-**C:** 
+**C:**
 
     int XilEnv_IsDialogClosed(void);
 
-**VB:** 
+**VB:**
 
     Public Declare Function XilEnv_IsDialogClosed () As Long
 
@@ -4211,7 +4211,7 @@ Return value:
 
 ####  10.7.7. <a name='XilEnv_SelectSheet'></a>XilEnv_SelectSheet
 
-**C:** 
+**C:**
 
     int XilEnv_SelectSheet (const char\* SheetName);
 
@@ -4225,7 +4225,7 @@ Return value:
 
 ####  10.7.8. <a name='XilEnv_AddSheet'></a>XilEnv_AddSheet
 
-**C:** 
+**C:**
 
     int XilEnv_AddSheet (const char\* SheetName);
 
@@ -4239,7 +4239,7 @@ Return value:
 
 ####  10.7.9. <a name='XilEnv_DeleteSheet'></a>XilEnv_DeleteSheet
 
-**C:** 
+**C:**
 
     int XilEnv_DeleteSheet (const char\* SheetName);
 
@@ -4253,7 +4253,7 @@ Return value:
 
 ####  10.7.10. <a name='XilEnv_RenameSheet'></a>XilEnv_RenameSheet
 
-**C:** 
+**C:**
 
    int XilEnv_RenameSheet (const char\* OldSheetName, const char\* NewSheetName);
 
@@ -4267,7 +4267,7 @@ Return value:
 
 ####  10.7.11. <a name='XilEnv_OpenWindow'></a>XilEnv_OpenWindow
 
-**C:** 
+**C:**
 
     int XilEnv_OpenWindow (const char\* WindowName);
 
@@ -4279,7 +4279,7 @@ Always \'0\'.
 
 ####  10.7.12. <a name='XilEnv_CloseWindow'></a>XilEnv_CloseWindow
 
-**C:** 
+**C:**
 
     int XilEnv_CloseWindow (const char\* WindowName);
 
@@ -4291,7 +4291,7 @@ Always \'0\'.
 
 ####  10.7.13. <a name='XilEnv_DeleteWindow'></a>XilEnv_DeleteWindow
 
-**C:** 
+**C:**
 
     int XilEnv_DeleteWindow (const char\* WindowName);
 
@@ -4303,7 +4303,7 @@ Always \'0\'.
 
 ####  10.7.14. <a name='XilEnv_ImportWindow'></a>XilEnv_ImportWindow
 
-**C:** 
+**C:**
 
     int XilEnv_ImportWindow (const char\* WindowName, const char\* FileName);
 
@@ -4317,7 +4317,7 @@ Return value:
 
 ####  10.7.15. <a name='XilEnv_ExportWindow'></a>XilEnv_ExportWindow
 
-**C:** 
+**C:**
 
     int XilEnv_ExportWindow (const char\* SheetName, const char\* WindowName, const char\* FileName);
 
@@ -4331,11 +4331,11 @@ Always \'0\'.
 
 ####  10.8.1. <a name='XilEnv_AddVari'></a>XilEnv_AddVari
 
-**C:** 
+**C:**
 
     int XilEnv_AddVari(unsigned char\* label, int type, unsigned char\* unit)
 
-**VB:** 
+**VB:**
 
     Public Declare Function XilEnv_AddVari (ByVal label As String, ByVal ltype As Long, ByVal unit As String) As Long
 
@@ -4366,11 +4366,11 @@ Return value:
 
 ####  10.8.2. <a name='XilEnv_RemoveVari'></a>XilEnv_RemoveVari
 
-**C:** 
+**C:**
 
     int XilEnv_RemoveVari(int vid);
 
-**VB:** 
+**VB:**
 
     Public Declare Function XilEnv_RemoveVari Lib (ByVal vid As Long) As Long
 
@@ -4379,22 +4379,22 @@ XilEnv_RemoveVari removes a variable referenced through \"vid\" from the blackbo
 Example:
 
     Dim vid As Long
-                
+
     vid = XilEnv_AddVari("test", 7, "_A")
     vid = XilEnv_AddVari("test", 7, "mA")
     vid = XilEnv_AddVari("test", 7, "mA")
     XilEnv_RemoveVari(vid);
     XilEnv_RemoveVari(vid);
     XilEnv_RemoveVari(vid);                 ‘<- here the variable is removed
-                
+
 
 ####  10.8.3. <a name='XilEnv_AttachVari'></a>XilEnv_AttachVari
 
-**C:** 
+**C:**
 
     int XilEnv_AttachVari(unsigned char\* label);
 
-**VB:** 
+**VB:**
 
     Public Declare Function XilEnv_AttachVari Lib (ByVal label As String) As Long
 
@@ -4403,22 +4403,22 @@ XilEnv_AttachVari increases the access-counter of a variable and returns its var
 Example:
 
     Dim vid As Long
-                
+
     vid = XilEnv_AddVari("test", 7e "mA")
     vid = XilEnv_AttachVari("test")
     vid = XilEnv_AttachVari("test")
     XilEnv_RemoveVari(vid);
     XilEnv_RemoveVari(vid);
     XilEnv_RemoveVari(vid);                 ‘<- here the variable is deleted
-                
+
 
 ####  10.8.4. <a name='XilEnv_Get'></a>XilEnv_Get
 
-**C:** 
+**C:**
 
     double XilEnv_Get(int vid);
 
-**VB:** 
+**VB:**
 
     Public Declare Function XilEnv_Get Lib (ByVal vid As Long) As Double
 
@@ -4428,18 +4428,18 @@ Example:
 
     Dim vid As Long
     Dim value As Double
-                
+
     vid = XilEnv_AddVari("test", 7, "mA")
     value = XilEnv_Get(vid);
-                
+
 
 ####  10.8.5. <a name='XilEnv_GetPhys'></a>XilEnv_GetPhys
 
-**C:** 
+**C:**
 
     double XilEnv_GetPhys(int vid);
 
-**VB:** 
+**VB:**
 
     Public Declare Function XilEnv_GetPhys Lib (ByVal vid As Long) As Double
 
@@ -4447,11 +4447,11 @@ XilEnv_GetPhys returns the current physical value (converted) of the variable, r
 
 ####  10.8.6. <a name='XilEnv_Set'></a>XilEnv_Set
 
-**C:** 
+**C:**
 
     void XilEnv_Set(int vid, double value);
 
-**VB:** 
+**VB:**
 
     Public Declare Sub XilEnv_Set (ByVal vid As Long, ByVal value As Double)
 
@@ -4459,11 +4459,11 @@ XilEnv_Set writes the \"value\" into the \"vid\"-referenced variable.
 
 ####  10.8.7. <a name='XilEnv_SetPhys'></a>XilEnv_SetPhys
 
-**C:** 
+**C:**
 
     int XilEnv_SetPhys(int vid, double value);
 
-**VB:** 
+**VB:**
 
     Public Declare Function XilEnv_SetPhys (ByVal vid As Long, ByVal value As Double) As Long
 
@@ -4477,11 +4477,11 @@ Return value:
 
 ####  10.8.8. <a name='XilEnv_Equ'></a>XilEnv_Equ
 
-**C:** 
+**C:**
 
     double XilEnv_Equ(unsigned char\* equ);
 
-**VB:** 
+**VB:**
 
     Public Declare Function XilEnv_Equ (ByVal equ As String) As Double
 
@@ -4491,11 +4491,11 @@ E.g.: Signal1 \* 10.0 + (Signal2 -\_Signal3) \* Offset
 
 ####  10.8.9. <a name='XilEnv_WrVariEnable'></a>XilEnv_WrVariEnable
 
-**C:** 
+**C:**
 
     int XilEnv_WrVariEnable(unsigned char\* label, unsigned char\* process);
 
-**VB:** 
+**VB:**
 
     Public Declare Function XilEnv_WrVariEnable (ByVal label As String, ByVal process As String) As Long
 
@@ -4509,11 +4509,11 @@ Return value:
 
 ####  10.8.10. <a name='XilEnv_WrVariDisable'></a>XilEnv_WrVariDisable
 
-**C:** 
+**C:**
 
     int XilEnv_WrVariDisable(unsigned char\* label, unsigned char\*process);
 
-**VB:** 
+**VB:**
 
     Public Declare Function XilEnv_WrVariDisable (ByVal label As String, ByVal process As String) As Long
 
@@ -4527,11 +4527,11 @@ Return value:
 
 ####  10.8.11. <a name='XilEnv_IsWrVariEnable'></a>XilEnv_IsWrVariEnable
 
-**C:** 
+**C:**
 
     int XilEnv_IsWrVariEnabled(unsigned char\* label, unsigned char\* process);
 
-**VB:** 
+**VB:**
 
     Public Declare Function XilEnv_IsWrVariEnabled (ByVal label As String, ByVal process As String) As Long
 
@@ -4545,11 +4545,11 @@ Return value:
 
 ####  10.8.12. <a name='XilEnv_LoadRefList'></a>XilEnv_LoadRefList
 
-**C:** 
+**C:**
 
     int XilEnv_LoadRefList(unsigned char\* reflist, unsigned char\* process);
 
-**VB:** 
+**VB:**
 
     Public Declare Function XilEnv_LoadRefList (ByVal reflist As String, ByVal process As String) As Long
 
@@ -4565,11 +4565,11 @@ Return value:
 
 ####  10.8.13. <a name='XilEnv_SaveRefList'></a>XilEnv_SaveRefList
 
-**C:** 
+**C:**
 
     int XilEnv_SaveRefList(unsigned char\* reflist, unsigned char\* process);
 
-**VB:** 
+**VB:**
 
     Public Declare Function XilEnv_SaveRefList (ByVal reflist As String, ByVal process As String) As Long
 
@@ -4585,11 +4585,11 @@ Return value:
 
 ####  10.8.14. <a name='XilEnv_ExportRobFile'></a>XilEnv_ExportRobFile
 
-**C:** 
+**C:**
 
     int XilEnv_ExpoCtRobFile(unsigned char\* robfile);
 
-**VB:** 
+**VB:**
 
     Public Declare Function XilEnv_ExportRobFile (ByVal robfile As String) As Long
 
@@ -4603,11 +4603,11 @@ Return value:
 
 ####  10.8.15. <a name='XilEnv_GetVariConvertionType'></a>XilEnv_GetVariConvertionType
 
-**C:** 
+**C:**
 
     int XilEnv_GetVariConvertionType(int vid);
 
-**VB:** 
+**VB:**
 
     Public Declare Function XilEnv_GetVariConvertionType (ByVal vid As Long) As Long
 
@@ -4623,11 +4623,11 @@ XilEnv_GetVariConvertionType returns the conversion-type of a blackboard-variabl
 
 ####  10.8.16. <a name='XilEnv_GetVariConvertionString'></a>XilEnv_GetVariConvertionString
 
-**C:** 
+**C:**
 
     char\* XilEnv_GetVariConvertionString(int vid);
 
-**VB:** 
+**VB:**
 
     Public Declare Function XilEnv_GetVariConvertionString (ByVal vid As Long) As String
 
@@ -4639,11 +4639,11 @@ XilEnv_GetVariConvertionString returns the conversion-string of a blackboard var
 
 ####  10.8.17. <a name='XilEnv_SetVariConvertion'></a>XilEnv_SetVariConvertion
 
-**C:** 
+**C:**
 
     int XilEnv_SetVariConvertion (int vid, int type, const char conv_string);
 
-**VB:** 
+**VB:**
 
     Public Declare Function XilEnv_SetVariConvertion (ByVal vid As Long, ByVal type As Long, ByVal conv_string As String) As Long
 
@@ -4657,11 +4657,11 @@ Return value:
 
 ####  10.8.18. <a name='XilEnv_GetVariType'></a>XilEnv_GetVariType
 
-**C:** 
+**C:**
 
     int XilEnv_GetVariType(int vid);
 
-**VB:** 
+**VB:**
 
     Public Declare Function XilEnv_GetVariType (ByVal vid As Long) As Long
 
@@ -4691,11 +4691,11 @@ Return value:
 
 ####  10.8.19. <a name='XilEnv_GetVariUnit'></a>XilEnv_GetVariUnit
 
-**C:** 
+**C:**
 
     char\* XilEnv_GetVariUnit(int vid);
 
-**VB:** 
+**VB:**
 
     Public Declare Function XilEnv_GetVariUnit (ByVal vid As Long) As String
 
@@ -4709,11 +4709,11 @@ Return value:
 
 ####  10.8.20. <a name='XilEnv_SetVariUnit'></a>XilEnv_SetVariUnit
 
-**C:** 
+**C:**
 
     char\* XilEnv_SetVariUnit(int vid, char \*unit);
 
-**VB:** 
+**VB:**
 
     Public Declare Function XilEnv_SetVariUnit (ByVal vid As Long ByVal unit As String) As Long
 
@@ -4727,7 +4727,7 @@ Return value:
 
 ####  10.8.21. <a name='XilEnv_GetVariMin'></a>XilEnv_GetVariMin
 
-**C:** 
+**C:**
 
     double XilEnv_GetVariMin(int vid);
 
@@ -4739,11 +4739,11 @@ XilEnv_GetVariMin returns the minimum threshold of a blackboard-variable.
 
 ####  10.8.22. <a name='XilEnv_GetVariMax'></a>XilEnv_GetVariMax
 
-**C:** 
+**C:**
 
     double XilEnv_GetVariMax(int vid);
 
-**VB:** 
+**VB:**
 
     Public Declare Function XilEnv_GetVariMax (ByVal vid As Long) As Double
 
@@ -4751,11 +4751,11 @@ XilEnv_GetVariMax returns the maximum threshold of a blackboard-variable.
 
 ###  10.9. <a name='XilEnv_SetVariMin'></a>XilEnv_SetVariMin
 
-**C:** 
+**C:**
 
     int XilEnv_SetVariMin(int vid, double min);
 
-**VB:** 
+**VB:**
 
     Public Declare Function XilEnv_SetVariMin (ByVal vid As Long, ByVal min As Double) As Long
 
@@ -4769,11 +4769,11 @@ Return value:
 
 ####  10.9.1. <a name='XilEnv_SetVariMax'></a>XilEnv_SetVariMax
 
-**C:** 
+**C:**
 
     int XilEnv_SetVariMax(int vid, double max);
 
-**VB:** 
+**VB:**
 
     Public Declare Function XilEnv_SetVariMax (ByVal vid As Long, ByVal max As Double) As Long
 
@@ -4787,11 +4787,11 @@ Return value:
 
 ####  10.9.2. <a name='XilEnv_GetNextVari'></a> XilEnv_GetNextVari
 
-**C:** 
+**C:**
 
     char\* XilEnv_GetNextVari(int flag, char\* filter);
 
-**VB:** 
+**VB:**
 
     Public Declare Function XilEnv_GetNextVari (ByVal flag As Long, ByVal filter As String) As String
 
@@ -4807,11 +4807,11 @@ Return value:
 
 ####  10.9.3. <a name='XilEnv_GetNextVariEx'></a>XilEnv_GetNextVariEx
 
-**C:** 
-    
+**C:**
+
     char\* XilEnv_GetNextVariEx(int flag, char\* filter, char\*process, int AccessFlags);
 
-**VB:** 
+**VB:**
 
     Public Declare Function XilEnv_GetNextVariEx (ByVal flag As Long, ByVal filter As String, , ByVal process As String, ByVal AccessFlags As Long) As String
 
@@ -4837,11 +4837,11 @@ Return value:
 
 ####  10.9.4. <a name='XilEnv_GetVariEnum'></a>XilEnv_GetVariEnum
 
-**C:** 
+**C:**
 
     char\* XilEnv_GetVariEnum(int vid, double value);
 
-**VB:** 
+**VB:**
 
     Public Declare Function XilEnv_GetVariEnum (ByVal vid As Long, ByVal value As double) As String
 
@@ -4855,7 +4855,7 @@ Return value:
 
 ####  10.9.5. <a name='XilEnv_WriteFrame'></a>XilEnv_WriteFrame
 
-**C:** 
+**C:**
 
     int XilEnv_WriteFrame (int \*Vids, double \*ValueFrame, int Size);
 
@@ -4889,7 +4889,7 @@ sc2py.WriteFrame (Vids, Values, 3)
 
 ####  10.9.6. <a name='XilEnv_GetFrame'></a>XilEnv_GetFrame
 
-**C:** 
+**C:**
 
     int XilEnv_GetFrame (int \*Vids, double \*RetValueFrame, int Size);
 
@@ -4923,7 +4923,7 @@ print Values\[2\]
 
 ####  10.9.7. <a name='XilEnv_WriteFrameWaitReadFrame'></a>XilEnv_WriteFrameWaitReadFrame
 
-**C:** 
+**C:**
 
     int XilEnv_WriteFrameWaitReadFrame (int \*WriteVids, double \*WriteValues, int WriteSize, int \*ReadVids, double \*ReadValuesRet, int ReadSize);
 
@@ -4969,7 +4969,7 @@ print In\[1\]
 
 ####  10.9.8. <a name='XilEnv_ImportVariProperties'></a>XilEnv_ImportVariProperties
 
-**C:** 
+**C:**
 
     int XilEnv_ImportVariProperties (const char\* Filename);
 
@@ -4979,7 +4979,7 @@ Thereby the following settings are overwritten: unit, min-/max-threholds, conver
 
 ####  10.9.9. <a name='XilEnv_EnableRangeControl'></a>XilEnv_EnableRangeControl
 
-**C:** 
+**C:**
 
     int XilEnv_EnableRangeControl (const char\* ProcessNameFilter, const char\* VariableNameFilter);
 
@@ -4989,7 +4989,7 @@ Wildcards (\*?) are allowed for process name as well as variabels.
 
 ####  10.9.10. <a name='XilEnv_DisableiangeControl'></a>XilEnv_DisableiangeControl
 
-**C:** 
+**C:**
 
     int XilEnv_DisableRangeControl (const char\* ProcessNameFilter, const char\* VariableNameFilter);
 
@@ -5025,7 +5025,7 @@ Return value
     enum BB_DATA_TYPES {BB_BYTE=0, BB_UBYTE=1, BB_WORD=2, BB_UWORD=3, BB_DWORD=4,
                         BB_UDWORD=5, BB_FLOAT=6, BB_DOUBLE=7, BB_UNKNOWN=8,
                         BB_UNKNOWN_DOUBLE=9, BB_UNKNOWN_WAIT=10, BB_QWORD=34, BB_UQWORD=35};
-                
+
 
 \<0 - error
 
@@ -5040,7 +5040,7 @@ Return value
     enum BB_DATA_TYPES {BB_BYTE=0, BB_UBYTE=1, BB_WORD=2, BB_UWORD=3, BB_DWORD=4,
                         BB_UDWORD=5, BB_FLOAT=6, BB_DOUBLE=7, BB_UNKNOWN=8,
                         BB_UNKNOWN_DOUBLE=9, BB_UNKNOWN_WAIT=10, BB_QWORD=34, BB_UQWORD=35};
-                
+
 
     union BB_VARI {
         int8_t b;               // BB_BYTE
@@ -5067,11 +5067,11 @@ Return value
 
 ####  10.10.1. <a name='XilEnv_LoadSvl'></a>XilEnv_LoadSvl
 
-**C:** 
+**C:**
 
     int XilEnv_LoadSvl(unsigned char\* svlfile, unsigned char\* process);
 
-**VB:** 
+**VB:**
 
     Public Declare Function XilEnv_LoadSvl (ByVal svlfile As String, ByVal process As String) As Long
 
@@ -5085,11 +5085,11 @@ Return value:
 
 ####  10.10.2. <a name='XilEnv_SaveSvl'></a>XilEnv_SaveSvl
 
-**C:** 
+**C:**
 
     int XilEnv_SaveSvl(unsigned char\* svlfile, unsigned char\* process, unsigned char\* filter);
 
-**VB:** 
+**VB:**
 
     Public Declare Function XilEnv_SaveSvl (ByVal svlfile As String, ByVal process As String, ByVal filter As String) As Long
 
@@ -5105,13 +5105,13 @@ Return value:
 
 ####  10.10.3. <a name='XilEnv_ReferenceSymbol'></a>XilEnv_ReferenceSymbol
 
-**C:** 
+**C:**
 
     int XilEnv_ReferenceSymbol(const char\* Symbol, const char \*DisplayName, const char\* Process, const char \*Unit, int ConversionType, const char \*Conversion, double Min, double Max, int Color, int Width, int Precision, int Flags);
 
 \'XilEnv_ReferenceSymbol\' will be referenced a symbol \'Symbol\' inside an external process \'Process\' to the blackboard. The symbol name must be a entry inside the debug information of the externen process. The symbol is a path to a static memory location inside the external process. For example:
 
-     Label.member.array[3].member 
+     Label.member.array[3].member
 
 The symbol must be a base data type. If the \'DisplayName\' is not an empty string or a null pointer this will define the name inside the blackboard, otherwise it is the symbol itself. The parameter \'Unit\' sets the unit string inside the blackboard. It can be an emty string or a null pointer. Than the unit would be not changed or will be empty. The parameter \'ConversionType\' define the type of the display conversion. It can have the following values:
 
@@ -5138,7 +5138,7 @@ The parameter \'Flags\' defines the direction of the reference.
     #define REFERENCE_SYMBOL_EP2BB_FLAG       0x0002
     /* BB <-> extern process */
     #define REFERENCE_SYMBOL_READWRITE_FLAG   0x0003
-    #define REFERENCE_SYMBOL_ADD_TO_LIST      0x0004        
+    #define REFERENCE_SYMBOL_ADD_TO_LIST      0x0004
 
 Return value
 
@@ -5148,19 +5148,19 @@ Return value
 
 ####  10.10.4. <a name='XilEnv_DereferenceSymbol'></a>XilEnv_DereferenceSymbol
 
-**C:** 
+**C:**
 
     int XilEnv_DereferenceSymbol(const char\* Symbol, const char\* Process, int Flags);
 
 \'XilEnv_ReferenceSymbol\' will be referenced a symbol \'Symbol\' inside an external process \'Process\' to the blackboard. The symbol name must be a entry inside the debug information of the externen process. The symbol is a path to a static memory location inside the external process. For example:
 
-     Label.member.array[3].member 
+     Label.member.array[3].member
 
 The symbol must be a base data type.
 
 The parameter \'Flags\' can have following value or 0.
 
-    #define DEREFERENCE_SYMBOL_REMOVE_FROM_LIST_FLAG  0x0004        
+    #define DEREFERENCE_SYMBOL_REMOVE_FROM_LIST_FLAG  0x0004
 
 Return value
 
@@ -5170,13 +5170,13 @@ Return value
 
 ####  10.10.5. <a name='XilEnv_GetSymbolRaw'></a>XilEnv_GetSymbolRaw
 
-**C:** 
+**C:**
 
     enum \_\_BB_DATA_TYPES XilEnv_GetSymbolRaw(const char\* Symbol, const char\* Process, int Flags, union BB_VARI \*ret_Value);
 
 \'XilEnv_GetSymbolRaw\' get a raw value of a symbol \'Symbol\' from an external process \'Process\'. The symbol name must be a entry inside the debug information of the externen process. The symbol is a path to a static memory location inside the external process. For example:
 
-    Label.member.array[3].member 
+    Label.member.array[3].member
 
 The symbol must be a base data type. The fetched value are stored at the address given with the parameter \'ret_Value\'. The pointer \'ret_Value\' must be reference a memory object equal or larger 8 bytes so all possible base data types can be stored.
 
@@ -5202,26 +5202,26 @@ Return value
     enum BB_DATA_TYPES {BB_BYTE=0, BB_UBYTE=1, BB_WORD=2, BB_UWORD=3, BB_DWORD=4,
                         BB_UDWORD=5, BB_FLOAT=6, BB_DOUBLE=7, BB_UNKNOWN=8,
                         BB_UNKNOWN_DOUBLE=9, BB_UNKNOWN_WAIT=10, BB_QWORD=34, BB_UQWORD=35};
-                
+
 
 \<0 - error
 
 ####  10.10.6. <a name='XilEnv_SetSymbolRaw'></a>XilEnv_SetSymbolRaw
 
-**C:** 
+**C:**
 
     int XilEnv_SetSymbolRaw(const char\* Symbol, const char\* Process, int Flags,enum \_\_BB_DATA_TYPES DataType, union BB_VARI Value);
 
 \'XilEnv_GetSymbolRaw\' will set a raw value of a symbol \'Symbol\' inside an external process \'Process\'. The symbol name must be a entry inside the debug information of the externen process. The symbol should be a path to a static memory location inside the external process. For example:
 
-    Label.member.array[3].member 
+    Label.member.array[3].member
 
 The symbol must be a base data type. The value to store at the given symbol address gare defined with the parameter \'\'DataType and Value\'.
 
     enum BB_DATA_TYPES {BB_BYTE=0, BB_UBYTE=1, BB_WORD=2, BB_UWORD=3, BB_DWORD=4,
                         BB_UDWORD=5, BB_FLOAT=6, BB_DOUBLE=7, BB_UNKNOWN=8,
                         BB_UNKNOWN_DOUBLE=9, BB_UNKNOWN_WAIT=10, BB_QWORD=34, BB_UQWORD=35};
-                
+
 
     union BB_VARI {
         int8_t b;               // BB_BYTE
@@ -5248,7 +5248,7 @@ Return value
 
 ####  10.11.1. <a name='XilEnv_SetupLinkToExternProcess'></a>XilEnv_SetupLinkToExternProcess
 
-**C:** 
+**C:**
 
     int XilEnv_SetupLinkToExternProcess(const char \*A2LFileName, const char \*ProcessName, int UpdateFlag);
 
@@ -5270,7 +5270,7 @@ Return value
 
 ####  10.11.2. <a name='XilEnv_GetLinkToExternProcess'></a>XilEnv_GetLinkToExternProcess
 
-**C:** 
+**C:**
 
     int XilEnv_GetLinkToExternProcess(const char \*ProcessName);;
 
@@ -5284,7 +5284,7 @@ Return value
 
 ####  10.11.3. <a name='XilEnv_GetIndexFromLink'></a>XilEnv_GetIndexFromLink
 
-**C:** 
+**C:**
 
     int XilEnv_GetIndexFromLink(int LinkNr, const char \*Label, int TypeMask);
 
@@ -5309,7 +5309,7 @@ The function \'XilEnv_GetIndexFromLink\' will be return a index of a characteris
     #define A2L_LABEL_TYPE_CUBOID_CALIBRATION         0x2000
     #define A2L_LABEL_TYPE_CUBE_4_CALIBRATION         0x4000
     #define A2L_LABEL_TYPE_CUBE_5_CALIBRATION         0x8000
-    #define A2L_LABEL_TYPE_AXIS_CALIBRATION          0x10000               
+    #define A2L_LABEL_TYPE_AXIS_CALIBRATION          0x10000
 
 Return value
 
@@ -5338,7 +5338,7 @@ Example to read one measurents with the name \"MyMeasurement\" :
 
 ####  10.11.4. <a name='XilEnv_GetNextSymbolFromLink'></a>XilEnv_GetNextSymbolFromLink
 
-**C:** 
+**C:**
 
     int XilEnv_GetNextSymbolFromLink(int LinkNr, int Index, int TypeMask, const char \*Filter, char \*ret_Label, int MaxChar);
 
@@ -5395,7 +5395,7 @@ Example to iterate through all measurents:
 
 ####  10.11.5. <a name='XilEnv_GetDataFromLink'></a>XilEnv_GetDataFromLink
 
-**C:** 
+**C:**
 
     XilEnv_LINK_DATA\* XilEnv_GetDataFromLink(int LinkNr, int Index, XilEnv_LINK_DATA \*Reuse, int PhysFlag, const char \*\*ret_Error);
 
@@ -5425,11 +5425,11 @@ An example reading one measurement/characteristic:
         XilEnv_FreeLinkData(Data):
     } else {
         printf ("Error %s\n", Error);
-    }           
+    }
 
 ####  10.11.6. <a name='XilEnv_SetDataToLink'></a>XilEnv_SetDataToLink
 
-**C:** 
+**C:**
 
     int XilEnv_SetDataToLink(int LinkNr, int Index, XilEnv_LINK_DATA \*Data, const char \*\*ret_Error);
 
@@ -5461,7 +5461,7 @@ An example reading one measurement/characteristic:
 
 ####  10.11.7. <a name='XilEnv_ReferenceMeasurementToBlackboard'></a>XilEnv_ReferenceMeasurementToBlackboard
 
-**C:** 
+**C:**
 
     int XilEnv_ReferenceMeasurementToBlackboard(int LinkNr, int Index, int DirFlags);
 
@@ -5486,7 +5486,7 @@ Return value
 
 ####  10.11.8. <a name='XilEnv_DereferenceMeasurementFromBlackboard'></a>XilEnv_DereferenceMeasurementFromBlackboard
 
-**C:** 
+**C:**
 
     XilEnv_DereferenceMeasurementFromBlackboard(int LinkNr, int Index);
 
@@ -5500,7 +5500,7 @@ Return value
 
 ####  10.11.9. <a name='XilEnv_GetLinkDataType'></a>XilEnv_GetLinkDataType
 
-**C:** 
+**C:**
 
     enum A2L_DATA_TYPE XilEnv_GetLinkDataType(XilEnv_LINK_DATA \*Data);
 
@@ -5513,15 +5513,15 @@ Return value
 \>= 0 - successfull, the value represent the type of the data.
 
     enum A2L_DATA_TYPE { A2L_DATA_TYPE_MEASUREMENT = 0, A2L_DATA_TYPE_VALUE = 1, A2L_DATA_TYPE_ASCII = 2,
-                         A2L_DATA_TYPE_VAL_BLK = 3, A2L_DATA_TYPE_CURVE = 4, A2L_DATA_TYPE_MAP = 5, 
-                         A2L_DATA_TYPE_CUBOID = 6, A2L_DATA_TYPE_CUBE_4 = 7, A2L_DATA_TYPE_CUBE_5 = 8, 
+                         A2L_DATA_TYPE_VAL_BLK = 3, A2L_DATA_TYPE_CURVE = 4, A2L_DATA_TYPE_MAP = 5,
+                         A2L_DATA_TYPE_CUBOID = 6, A2L_DATA_TYPE_CUBE_4 = 7, A2L_DATA_TYPE_CUBE_5 = 8,
                          A2L_DATA_TYPE_ERROR = -1 };
 
 != 0 - an error occur.
 
 ####  10.11.10. <a name='XilEnv_GetLinkDataArrayCount'></a>XilEnv_GetLinkDataArrayCount
 
-**C:** 
+**C:**
 
     int XilEnv_GetLinkDataArrayCount(XilEnv_LINK_DATA \*Data);
 
@@ -5538,7 +5538,7 @@ data.
 
 ####  10.11.11. <a name='XilEnv_GetLinkDataArraySize'></a>XilEnv_GetLinkDataArraySize
 
-**C:** 
+**C:**
 
     int XilEnv_GetLinkDataArraySize(XilEnv_LINK_DATA \*Data, int ArrayNo);
 
@@ -5554,7 +5554,7 @@ Return value
 
 ####  10.11.12. <a name='XilEnv_CopyLinkData'></a>XilEnv_CopyLinkData
 
-**C:** 
+**C:**
 
     XilEnv_LINK_DATA\* XilEnv_CopyLinkData(XilEnv_LINK_DATA \*Data)
 
@@ -5570,7 +5570,7 @@ Return value
 
 ####  10.11.13. <a name='XilEnv_FreeLinkData'></a>XilEnv_FreeLinkData
 
-**C:** 
+**C:**
 
     XilEnv_LINK_DATA\* XilEnv_FreeLinkData(XilEnv_LINK_DATA \*Data);
 
@@ -5586,7 +5586,7 @@ Return value
 
 ####  10.11.14. <a name='XilEnv_GetLinkSingleValueDataType'></a>XilEnv_GetLinkSingleValueDataType
 
-**C:** 
+**C:**
 
     enum A2L_ELEM_TYPE XilEnv_GetLinkSingleValueDataType(XilEnv_LINK_DATA \*Data);
 
@@ -5605,7 +5605,7 @@ Return value
 
 ####  10.11.15. <a name='XilEnv_GetLinkSingleValueTargetDataType'></a>XilEnv_GetLinkSingleValueTargetDataType
 
-**C:** 
+**C:**
 
     enum A2L_ELEM_TARGET_TYPE XilEnv_GetLinkSingleValueTargetDataType(XilEnv_LINK_DATA \*Data);
 
@@ -5629,7 +5629,7 @@ Return value
 
 ####  10.11.16. <a name='XilEnv_GetLinkSingleValueFlags'></a>XilEnv_GetLinkSingleValueFlags
 
-**C:** 
+**C:**
 
     uint32_t XilEnv_GetLinkSingleValueFlags(XilEnv_LINK_DATA \*Data);
 
@@ -5644,7 +5644,7 @@ Return value
     // this is the possible return value of the xxxxFlags() functions
     #define A2L_VALUE_FLAG_CALIBRATION               0x1
     #define A2L_VALUE_FLAG_MEASUREMENT               0x2
-    #define A2L_VALUE_FLAG_PHYS                      0x4  
+    #define A2L_VALUE_FLAG_PHYS                      0x4
     #define A2L_VALUE_FLAG_READ_ONLY                 0x8
     #define A2L_VALUE_FLAG_ONLY_VIRTUAL             0x10
     #define A2L_VALUE_FLAG_UPDATE                 0x1000
@@ -5653,7 +5653,7 @@ Return value
 
 ####  10.11.17. <a name='XilEnv_GetLinkSingleValueAddress'></a>XilEnv_GetLinkSingleValueAddress
 
-**C:** 
+**C:**
 
     uint64_t XilEnv_GetLinkSingleValueAddress(XilEnv_LINK_DATA \*Data);
 
@@ -5669,7 +5669,7 @@ Return value
 
 ####  10.11.18. <a name='XilEnv_GetLinkSingleValueDimensionCount'></a>XilEnv_GetLinkSingleValueDimensionCount
 
-**C:** 
+**C:**
 
     int XilEnv_GetLinkSingleValueDimensionCount(XilEnv_LINK_DATA \*Data);
 
@@ -5686,7 +5686,7 @@ Return value
 
 ####  10.11.19. <a name='XilEnv_GetLinkSingleValueDimension'></a>XilEnv_GetLinkSingleValueDimension
 
-**C:** 
+**C:**
 
     int XilEnv_GetLinkSingleValueDimension(XilEnv_LINK_DATA \*Data, int DimNo);
 
@@ -5703,15 +5703,15 @@ Return value
 
 ####  10.11.20. <a name='XilEnv_GetLinkSingleValueDataDoubleIntUint'></a>XilEnv_GetLinkSingleValueData\[Double/Int/Uint\]
 
-**C:** 
+**C:**
 
     double XilEnv_GetLinkSingleValueDataDouble(XilEnv_LINK_DATA \*Data);
 
-**C:** 
+**C:**
 
     int64_t XilEnv_GetLinkSingleValueDataInt(XilEnv_LINK_DATA \*Data);
 
-**C:** 
+**C:**
 
     uint64_t XilEnv_GetLinkSingleValueDataUint(XilEnv_LINK_DATA \*Data);
 
@@ -5723,15 +5723,15 @@ Return value is the value of data converted to double.
 
 ####  10.11.21. <a name='XilEnv_SetLinkSingleValueDataDoubleIntUint'></a>XilEnv_SetLinkSingleValueData\[Double/Int/Uint\]
 
-**C:** 
+**C:**
 
     int XilEnv_SetLinkSingleValueDataDouble(XilEnv_LINK_DATA \*Data, double Value);
 
-**C:** 
+**C:**
 
     int XilEnv_SetLinkSingleValueDataInt(XilEnv_LINK_DATA \*Data, int64_t Value);
 
-**C:** 
+**C:**
 
     int XilEnv_SetLinkSingleValueDataUint(XilEnv_LINK_DATA \*Data, uint64_t Value);
 
@@ -5747,8 +5747,8 @@ Return value:
 
 ####  10.11.22. <a name='XilEnv_GetLinkSingleValueDataString'></a>XilEnv_GetLinkSingleValueDataString
 
-**C:** 
-    
+**C:**
+
     int XilEnv_GetLinkSingleValueDataString(XilEnv_LINK_DATA \*Data, char \*ret_Value, int MaxLen);
 
 \'XilEnv_GetLinkSingleValueDataString\' will give back the value of a single value data converted to a string. The buffer maximum size must be defined with the parameter \'MaxLen\'. This funktion should be used for text replaced values.
@@ -5763,7 +5763,7 @@ Return value:
 
 ####  10.11.23. <a name='XilEnv_GetLinkSingleValueDataStringPtr'></a>XilEnv_GetLinkSingleValueDataStringPtr
 
-**C:** 
+**C:**
 
     const char\* XilEnv_GetLinkSingleValueDataStringPtr(XilEnv_LINK_DATA \*Data);
 
@@ -5774,9 +5774,9 @@ Remark: The returned pointer are invalid after any other XilEnv_xxxx function! I
 Return value is a pointer to a string
 
 ####  10.11.24. <a name='XilEnv_SetLinkSingleValueDataString'></a>XilEnv_SetLinkSingleValueDataString
- 
- **C:** 
- 
+
+ **C:**
+
     int \_\_STDCALL\_\_ XilEnv_SetLinkSingleValueDataString(XilEnv_LINK_DATA \*Data, const char \*Value);
 
 \'XilEnv_SetLinkSingleValueDataString\' will set a value to a text repace \'Value\" string. Data must have thr data type A2L_ELEM_TYPE_TEXT_REPLACE, otherwise the function fails.
@@ -5791,7 +5791,7 @@ Return value:
 
 ####  10.11.25. <a name='XilEnv_GetLinkSingleValueUnit'></a>XilEnv_GetLinkSingleValueUnit
 
-**C:** 
+**C:**
 
     int XilEnv_GetLinkSingleValueUnit(XilEnv_LINK_DATA \*Data, char \*ret_Value, int MaxLen);
 
@@ -5803,7 +5803,7 @@ Return value is a pointer to a string
 
 ####  10.11.26. <a name='XilEnv_GetLinkSingleValueUnitPtr'></a>XilEnv_GetLinkSingleValueUnitPtr
 
-**C:** 
+**C:**
 
     const char\* XilEnv_GetLinkSingleValueUnitPtr(XilEnv_LINK_DATA \*Data);
 
@@ -5819,7 +5819,7 @@ Return value:
 
 ####  10.11.27. <a name='XilEnv_GetLinkArrayValueDataType'></a>XilEnv_GetLinkArrayValueDataType
 
-**C:** 
+**C:**
 
     enum A2L_ELEM_TYPE XilEnv_GetLinkArrayValueDataType(XilEnv_LINK_DATA \*Data, int ArrayNo, int Number);
 
@@ -5838,7 +5838,7 @@ Return value
 
 ####  10.11.28. <a name='XilEnv_GetLinkArrayValueTargetDataType'></a>XilEnv_GetLinkArrayValueTargetDataType
 
-**C:** 
+**C:**
 
     enum A2L_ELEM_TARGET_TYPE XilEnv_GetLinkArrayValueTargetDataType(XilEnv_LINK_DATA \*Data, int ArrayNo, int Number);
 
@@ -5862,7 +5862,7 @@ Return value
 
 ####  10.11.29. <a name='XilEnv_GetLinkArrayValueFlags'></a>XilEnv_GetLinkArrayValueFlags
 
-**C:** 
+**C:**
 
     uint32_t XilEnv_GetLinkArrayValueFlags(XilEnv_LINK_DATA \*Data, int ArrayNo, int Number);
 
@@ -5877,7 +5877,7 @@ Return value
     // this is the possible return value of the xxxxFlags() functions
     #define A2L_VALUE_FLAG_CALIBRATION               0x1
     #define A2L_VALUE_FLAG_MEASUREMENT               0x2
-    #define A2L_VALUE_FLAG_PHYS                      0x4  
+    #define A2L_VALUE_FLAG_PHYS                      0x4
     #define A2L_VALUE_FLAG_READ_ONLY                 0x8
     #define A2L_VALUE_FLAG_ONLY_VIRTUAL             0x10
     #define A2L_VALUE_FLAG_UPDATE                 0x1000
@@ -5886,7 +5886,7 @@ Return value
 
 ####  10.11.30. <a name='XilEnv_GetLinkArrayValueAddress'></a>XilEnv_GetLinkArrayValueAddress
 
-**C:** 
+**C:**
 
     uint64_t XilEnv_GetLinkArrayValueAddress(XilEnv_LINK_DATA \*Data, int ArrayNo, int Number);
 
@@ -5902,7 +5902,7 @@ Return value
 
 ####  10.11.31. <a name='XilEnv_GetLinkArrayValueDimensionCount'></a>XilEnv_GetLinkArrayValueDimensionCount
 
-**C:** 
+**C:**
 
     int XilEnv_GetLinkArrayValueDimensionCount(XilEnv_LINK_DATA \*Data);
 
@@ -5918,7 +5918,7 @@ Return value
 
 ####  10.11.32. <a name='XilEnv_GetLinkArrayValueDimension'></a>XilEnv_GetLinkArrayValueDimension
 
-**C:** 
+**C:**
 
     int XilEnv_GetLinkArrayValueDimension(XilEnv_LINK_DATA \*Data, int DimNo);
 
@@ -5934,16 +5934,16 @@ Return value
 
 ####  10.11.33. <a name='XilEnv_GetLinkArrayValueDataDoubleIntUint'></a>XilEnv_GetLinkArrayValueData\[Double/Int/Uint\]
 
-**C:** 
+**C:**
 
     double XilEnv_GetLinkSingleValueDataDouble(XilEnv_LINK_DATA \*Data, int ArrayNo, int Number);
 
-**C:** 
+**C:**
 
     int64_t XilEnv_GetLinkSingleValueDataInt(XilEnv_LINK_DATA \*Data, int ArrayNo, int Number);
 
-**C:** 
-        
+**C:**
+
     uint64_t XilEnv_GetLinkSingleValueDataUint(XilEnv_LINK_DATA \*Data, int ArrayNo, int Number);
 
 \'XilEnv_GetLinkSingleValueData\[Double/Int/Uint\]\' will give back the value of a array data element converted to data type double/Int/Uint. The data type double are a 64 float, the data type Int are a 64 bit integer and the data type Uint are a 64 bit unsigned integer. The parameter \'ArrayNo\' would define the array number it should be smaller as the return value of XilEnv_GetLinkSingleValueDimensionCount method. The parameter \'Number\' defines the array element.
@@ -5954,15 +5954,15 @@ Return value is the value of data converted to double.
 
 ####  10.11.34. <a name='XilEnv_SetLinkArrayValueDataDoubleIntUint'></a>XilEnv_SetLinkArrayValueData\[Double/Int/Uint\]
 
-**C:** 
+**C:**
 
     int XilEnv_SetLinkArrayValueDataDouble(XilEnv_LINK_DATA \*Data, int ArrayNo, int Number, double Value);
 
-**C:** 
+**C:**
 
     int XilEnv_SetLinkArrayValueDataInt(XilEnv_LINK_DATA \*Data, int ArrayNo, int Number, int64_t Value);
 
-**C:** 
+**C:**
 
     int XilEnv_SetLinkArrayValueDataUint(XilEnv_LINK_DATA \*Data, int ArrayNo, int Number, uint64_t Value);
 
@@ -5978,7 +5978,7 @@ Return value:
 
 ####  10.11.35. <a name='XilEnv_GetLinkArrayValueDataString'></a>XilEnv_GetLinkArrayValueDataString
 
-**C:** 
+**C:**
 
     int XilEnv_GetLinkArrayValueDataString(XilEnv_LINK_DATA \*Data, , int ArrayNo, int Number, char \*ret_Value, int MaxLen);
 
@@ -5994,19 +5994,19 @@ Return value:
 
 ####  10.11.36. <a name='XilEnv_GetLinkArrayValueDataStringPtr'></a>XilEnv_GetLinkArrayValueDataStringPtr
 
-**C:** 
+**C:**
 
     const char\* XilEnv_GetLinkArrayValueDataStringPtr(XilEnv_LINK_DATA \*Data, int ArrayNo, int Number);
 
 \'XilEnv_GetLinkSingleValueDataStringPtr\' will give back a pointer points to a text repace string of an array element. If data is not a text repace the returned pointer points to a empty string. You should not call this function only on data type A2L_ELEM_TYPE_TEXT_REPLACE. The parameter \'ArrayNo\' would define the array number it should be smaller as the return value of XilEnv_GetLinkSingleValueDimensionCount method. The parameter \'Number\' defines the array element.
 
-Remark: The returned pointer are invalid after any other XilEnv_xxxx function! If you need a clean copy use XilEnv_GetLinkSingleValueDataString insead. The parameter \'Data\' must be determine with the XilEnv_GetDataFromLink function before. The return value of XilEnv_GetLinkDataType should be 0 or 1. 
+Remark: The returned pointer are invalid after any other XilEnv_xxxx function! If you need a clean copy use XilEnv_GetLinkSingleValueDataString insead. The parameter \'Data\' must be determine with the XilEnv_GetDataFromLink function before. The return value of XilEnv_GetLinkDataType should be 0 or 1.
 
 Return value is a pointer to a string
 
 ####  10.11.37. <a name='XilEnv_SetLinkArrayValueDataString'></a>XilEnv_SetLinkArrayValueDataString
 
-**C:** 
+**C:**
 
     int XilEnv_SetLinkArrayValueDataString(XilEnv_LINK_DATA \*Data, , int ArrayNo, int Number, const char \*Value);
 
@@ -6022,7 +6022,7 @@ Return value:
 
 ####  10.11.38. <a name='XilEnv_GetLinkArrayValueUnit'></a>XilEnv_GetLinkArrayValueUnit
 
-**C:** 
+**C:**
 
     int XilEnv_GetLinkArrayValueUnit(XilEnv_LINK_DATA \*Data, , int ArrayNo, int Number, char \*ret_Value, int MaxLen);
 
@@ -6034,7 +6034,7 @@ Return value is a pointer to a string
 
 ####  10.11.39. <a name='XilEnv_GetLinkArrayValueUnitPtr'></a>XilEnv_GetLinkArrayValueUnitPtr
 
-**C:** 
+**C:**
 
     const char\* XilEnv_GetLinkArrayValueUnitPtr(XilEnv_LINK_DATA \*Data, int ArrayNo, int Number);
 
@@ -6057,11 +6057,11 @@ The following functions are useful for OpenXilEnv for HiL only, but they are als
 
 ####  10.13.1. <a name='XilEnv_LoadCanVariante'></a>XilEnv_LoadCanVariante
 
-**C:** 
+**C:**
 
     int XilEnv_LoadCanVariante(unsigned char\* canfile, int channel);
 
-**VB:** 
+**VB:**
 
     Public Declare Function XilEnv_LoadCanVariante (ByVal canfile As String, ByVal channel As Long) As Long
 
@@ -6075,11 +6075,11 @@ Return value:
 
 ####  10.13.2. <a name='XilEnv_LoadAndSelCanVariante'></a>XilEnv_LoadAndSelCanVariante
 
-**C:** 
+**C:**
 
     int XilEnv_LoadAndSelCanVariante(unsigned char\* canfile, int channel);
 
-**VB:** 
+**VB:**
 
     Public Declare Function XilEnv_LoadAndSelCanVariante (ByVal canfile As String, ByVal channel As Long) As Long
 
@@ -6093,7 +6093,7 @@ Return value:
 
 ####  10.13.3. <a name='XilEnv_DellAllCanVariants'></a>XilEnv_DellAllCanVariants
 
-**C:** 
+**C:**
 
     void XilEnv_DellAllCanVariants(void); **VB:** Public Declare Sub XilEnv_DellAllCanVariants ()
 
@@ -6101,7 +6101,7 @@ XilEnv_DellAllCanVariants deletes all CAN-variants from the internal CAN-databas
 
 ####  10.13.4. <a name='XilEnv_TransmitCAN'></a>XilEnv_TransmitCAN
 
-**C:** 
+**C:**
 
     int XilEnv_TransmitCAN (int channel, int id, int ext, int size,
 
@@ -6117,7 +6117,7 @@ Sends one CAN-object once through the channel **channel** with identifier **id**
 
 ####  10.13.5. <a name='XilEnv_SetCanErr'></a>XilEnv_SetCanErr
 
-**C:** 
+**C:**
 
     int XilEnv_SetCanErr (int Channel, int Id, int Startbit, int Bitsize, char \*Byteorder, unsigned long Cycles, unsigned \_\_int64 BitErrValue);
 
@@ -6125,13 +6125,13 @@ Sends one CAN-object once through the channel **channel** with identifier **id**
 
 Special case:
 
-If the parameter \"Startbit\" is set to \'-1\', the data length of the CAN-object is set to the value of \"Bitsize\" for the duration of \"Cycles\". Thereby it must be regarded that Bitsize is a multiple of 8 (8, 16, \..., 64). The parameter \"Byteorder\" and \"ErrValue\" are ignored for this case. 
+If the parameter \"Startbit\" is set to \'-1\', the data length of the CAN-object is set to the value of \"Bitsize\" for the duration of \"Cycles\". Thereby it must be regarded that Bitsize is a multiple of 8 (8, 16, \..., 64). The parameter \"Byteorder\" and \"ErrValue\" are ignored for this case.
 
-If the parameter \"Startbit\" is set to \'-2\', the sending of the CAN-object that is defined by the parameter \"Channel\" and \"Id\" is interrupted for the duration of \"Cycles\". 
+If the parameter \"Startbit\" is set to \'-2\', the sending of the CAN-object that is defined by the parameter \"Channel\" and \"Id\" is interrupted for the duration of \"Cycles\".
 
 ####  10.13.6. <a name='XilEnv_SetCanErrSignalName'></a>XilEnv_SetCanErrSignalName
 
-**C:** 
+**C:**
 
     int XilEnv_SetCanErrSignalName (int Channel, int Id, char \*Signalname, unsigned long Cycles, unsigned \_\_int64 BitErrValue);
 
@@ -6141,7 +6141,7 @@ When parameter „Channel" and parameter „Id" have the value \'-1\' the  signa
 
 ####  10.13.7. <a name='XilEnv_ClearCanErr'></a>XilEnv_ClearCanErr
 
-**C:** 
+**C:**
 
     int XilEnv_ClearCanErr (void);
 
@@ -6149,7 +6149,7 @@ XilEnv_ClearCanErr stops the overwriting of bits in a CAN-message before the end
 
 ####  10.13.8. <a name='XilEnv_SetCanSignalConversion'></a>XilEnv_SetCanSignalConversion
 
-**C:** 
+**C:**
 
     int XilEnv_SetCanSignalConversion (int Channel, int Id, const char \*Signalname, const char \*Conversion);
 
@@ -6161,7 +6161,7 @@ If **ID** == \'-1\' searching of the signal on all CAN-objects.
 
 ####  10.13.9. <a name='XilEnv_ResetCanSignalConversion'></a>XilEnv_ResetCanSignalConversion
 
-**C:** 
+**C:**
 
     int XilEnv_ResetCanSignalConversion (int Channel, int Id, const char \*Signalname);
 
@@ -6171,7 +6171,7 @@ If the signalname == NULL, all changes on the CAN-bus and the chosen objects are
 
 ####  10.13.10. <a name='XilEnv_ResetAllCanSignalConversion'></a>XilEnv_ResetAllCanSignalConversion
 
-**C:** 
+**C:**
 
     int XilEnv_ResetAllCanSignalConversion (int Channel, int Id);
 
@@ -6183,11 +6183,11 @@ The function is identical to the \'ResetCanSignalConversion\' instruction with s
 
 ####  10.14.1. <a name='XilEnv_LoadCCPConfig'></a>XilEnv_LoadCCPConfig
 
-**C:** 
+**C:**
 
     int XilEnv_LoadCCPConfig(unsigned char\* xcpfile);
 
-**VB:** 
+**VB:**
 
     Public Declare Function XilEnv_LoadCCPConfig (ByVal ccpfile As String) As Long
 
@@ -6201,11 +6201,11 @@ Return value:
 
 ####  10.14.2. <a name='XilEnv_StartCCPBegin'></a>XilEnv_StartCCPBegin
 
-**C:** 
+**C:**
 
     int XilEnv_StartCCPBegin(void);
 
-**VB:** 
+**VB:**
 
     Public Declare Function XilEnv_StartCCPBegin () As Long
 
@@ -6220,41 +6220,41 @@ Return value:
 Example:
 
                     Dim Ret As Long
-                    
+
                     Ret = XilEnv_StartCCPBegin
                     Ret = XilEnv_StartCCPAddVar(“Signal1“)
                     Ret = XilEnv_StartCCPAddVar(“Signal2“)
                     Ret = XilEnv_StartCCPAddVar(“Signal3“)
                     Ret = XilEnv_StartCCPEnd
-                
+
 
 ####  10.14.3. <a name='XilEnv_StartCCPAddVar'></a>XilEnv_StartCCPAddVar
 
-**C:** 
+**C:**
 
     int XilEnv_StartCCPAddVar(unsigned char\* label);
 
-**VB:** 
+**VB:**
 
     Public Declare Function XilEnv_StartCCPAddVar (ByVal label As String) As Long
 
 ####  10.14.4. <a name='XilEnv_StartCCPEnd'></a>XilEnv_StartCCPEnd
 
-**C:** 
+**C:**
 
     int XilEnv_StartCCPEnd(void);
 
-**VB:** 
+**VB:**
 
     Public Declare Function XilEnv_StartCCPEnd () As Long
 
 ####  10.14.5. <a name='XilEnv_StopCCP'></a>XilEnv_StopCCP
 
-**C:** 
+**C:**
 
     int XilEnv_StopCCP(void);
 
-**VB:** 
+**VB:**
 
     Public Declare Function XilEnv_StopCCP () As Long
 
@@ -6268,11 +6268,11 @@ Return value:
 
 ####  10.14.6. <a name='XilEnv_StartCCPCalBegin'></a>XilEnv_StartCCPCalBegin
 
-**C:** 
+**C:**
 
     int XilEnv_StartCCPCalBegin(void);
 
-**VB:** 
+**VB:**
 
     Public Declare Function XilEnv_StartCCPCalBegin () As Long
 
@@ -6287,41 +6287,41 @@ Return value:
 Example:
 
                     Dim Ret As Long
-                    
+
                     Ret = XilEnv_StartCCPCalBegin
                     Ret = XilEnv_StartCCPCalAddVar(“PARAMETER1“)
                     Ret = XilEnv_StartCCPCalAddVar(“PARAMETER2“)
                     Ret = XilEnv_StartCCPCalAddVar(“PARAMETER3“)
                     Ret = XilEnv_StartCCPCalEnd
-                
+
 
 ####  10.14.7. <a name='XilEnv_StartCCPCalAddVar'></a>XilEnv_StartCCPCalAddVar
 
-**C:** 
+**C:**
 
     int XilEnv_StartCCPCalAddVar(unsigned char\* label);
 
-**VB:** 
+**VB:**
 
     Public Declare Function XilEnv_StartCCPCalAddVar (ByVal label As String) As Long
 
 ####  10.14.8. <a name='XilEnv_StartCCPCalEnd'></a>XilEnv_StartCCPCalEnd
 
-**C:** 
+**C:**
 
     int XilEnv_StartCCPCalEnd(void);
 
-**VB:** 
+**VB:**
 
     Public Declare Function XilEnv_StartCCPCalEnd () As Long
 
 ####  10.14.9. <a name='XilEnv_StopCCPCal'></a>XilEnv_StopCCPCal
 
-**C:** 
+**C:**
 
     int XilEnv_StopCCP(void);
 
-**VB:** 
+**VB:**
 
     Public Declare Function XilEnv_StopCCPCal () As Long
 
@@ -6337,11 +6337,11 @@ Return value:
 
 ####  10.15.1. <a name='XilEnv_LoadXCPConfig'></a>XilEnv_LoadXCPConfig
 
-**C:** 
+**C:**
 
     int XilEnv_LoadXCPConfig(unsigned char\* xcpfile);
 
-**VB:** 
+**VB:**
 
     Public Declare Function XilEnv_LoadXCPConfig (ByVal xcpfile As String) As Long
 
@@ -6355,11 +6355,11 @@ Return value:
 
 ####  10.15.2. <a name='XilEnv_StartXCPBegin'></a>XilEnv_StartXCPBegin
 
-**C:** 
+**C:**
 
     int XilEnv_StartXCPBegin(void);
 
-**VB:** 
+**VB:**
 
     Public Declare Function XilEnv_StartXCPBegin () As Long
 
@@ -6374,42 +6374,42 @@ Return value:
 Example:
 
                     Dim Ret As Long
-                    
+
                     Ret = XilEnv_StartXCPBegin
                     Ret = XilEnv_StartXCPAddVar(“Signal1“)
                     Ret = XilEnv_StartXCPAddVar(“Signal2“)
                     Ret = XilEnv_StartXCPAddVar("Signal3“)
                     Ret = XilEnv_StartXCPEnd
-                
+
 
 ####  10.15.3. <a name='XilEnv_StartXCPAddVar'></a>XilEnv_StartXCPAddVar
 
-**C:** 
+**C:**
 
     int XilEnv_StartXCPAddVar(unsigned char\* label);
 
-**VB:** 
+**VB:**
 
     Public Declare Function XilEnv_StartXCPAddVar PByVal label As String) As Long
 
 
 ####  10.15.4. <a name='XilEnv_StartXCPEnd'></a>XilEnv_StartXCPEnd
 
-**C:** 
+**C:**
 
     int XilEnv_StartXCPEnd(void);
 
-**VB:** 
+**VB:**
 
     Public Declare Function XilEnv_StartXCPEnd () As Long
 
 ####  10.15.5. <a name='XilEnv_StopXCP'></a>XilEnv_StopXCP
 
-**C:** 
+**C:**
 
     int XilEnv_StopXCP(void);
 
-**VB:** 
+**VB:**
 
     Public Declare Function XilEnv_StopXCP () As Long
 
@@ -6423,11 +6423,11 @@ Return value:
 
 ####  10.15.6. <a name='XilEnv_StartXCPCalBegin'></a>XilEnv_StartXCPCalBegin
 
-**C:** 
+**C:**
 
     int XilEnv_StartXCPCalBegin(void);
 
-**VB:** 
+**VB:**
 
     Public Declare Function XilEnv_StartXCPCalBegin () As Long
 
@@ -6442,41 +6442,41 @@ Return value:
 Example:
 
                     Dim Ret As Long
-                    
+
                     Ret = XilEnv_StartXCPCalBegin
                     Ret = XilEnv_StartXCPCalAddVar(“PARAMETER1“)
                     Ret = XilEnv_StartXCPCalAddVar(“PARAMETER2“)
                     Ret = XilEnv_StartXCPCalAddVar(“PARAMETER3“)
                     Ret = XilEnv_StartXCPCalEnd
-                
+
 
 ####  10.15.7. <a name='XilEnv_StartXCPCalAddVar'></a>XilEnv_StartXCPCalAddVar
 
-**C:** 
+**C:**
 
     int XilEnv_StartXCPCalAddVar(unsigned char\* label);
 
-**VB:** 
+**VB:**
 
     Public Declare Function XilEnv_StartXCPCalAddVar (ByVal label As String) As Long
 
 ####  10.15.8. <a name='XilEnv_StartXCPCalEnd'></a>XilEnv_StartXCPCalEnd
 
-**C:** 
+**C:**
 
     int XilEnv_StartXCPCalEnd(void);
 
-**VB:** 
+**VB:**
 
     Public Declare Function XilEnv_StartXCPCalEnd () As Long
 
 ####  10.15.9. <a name='XilEnv_StopXCPCal'></a>XilEnv_StopXCPCal
 
-**C:** 
+**C:**
 
     int XilEnv_StopXCP(void);
 
-**VB:** 
+**VB:**
 
     Public Declare Function XilEnv_StopXCPCal () As Long
 
@@ -6488,7 +6488,7 @@ Return value:
 
 !=0 -\> error
 
-                
+
 ##  11. <a name='Appendix'></a>Appendix
 
 ###  11.1. <a name='Transferparameter'></a>Transfer parameter
@@ -6598,7 +6598,7 @@ With the option -WriteBackExeToDir you can set the exutable name to store the ex
 
 Path of the OpenXilEnv-EXE-file that should be started.
 
-Example: 
+Example:
 
     --q5 c:\\OpenXilEnv\\XilEnv_32.exe --ini c:\\siftcar\\test.ini --script c:\\OpenXilEnv\\start.scr
 
@@ -7203,32 +7203,32 @@ This function calculates the checksum for a CAN-object. Thereby all data-words (
 This function calculates the CRC-checksum as follows:
 
     unsigned char can_crc8 (unsigned char AdditionalByte,
-                            unsigned char Polynom,  
-                            unsigned char IdxCrcByte) 
-    { 
-        unsigned char CrcValue; 
-        int ByteCount; 
-        int BitCount; 
-      
-        CrcValue = 0xFF;  
-        for (ByteCount = 0; ByteCount < CANMessage.Size; ByteCount++) {  
-            if (ByteCount != IdxCrcByte) { /* Leave out CRC-Byte */ 
-                CrcValue ^= CANMessage.Data[ByteCount];  
-                for (BitCount = 0; BitCount < 8; BitCount++) {  
-                    if ((CrcValue & 0x80) != 0) { 
-                        CrcValue = (CrcValue << 1) ^ Polynom;  
-                    } else { 
-                        CrcValue = (CrcValue << 1);  
-                    } 
-                } 
-            } 
-        } 
-        CrcValue ^= AdditionalByte;  
-        for (BitCount = 0; BitCount < 8; BitCount++) {  
-            if ((CrcValue & 0x80) != 0) { 
-                CrcValue = (CrcValue << 1) ^ Polynom;  
-            } else { 
-                CrcValue = (CrcValue << 1);  
+                            unsigned char Polynom,
+                            unsigned char IdxCrcByte)
+    {
+        unsigned char CrcValue;
+        int ByteCount;
+        int BitCount;
+
+        CrcValue = 0xFF;
+        for (ByteCount = 0; ByteCount < CANMessage.Size; ByteCount++) {
+            if (ByteCount != IdxCrcByte) { /* Leave out CRC-Byte */
+                CrcValue ^= CANMessage.Data[ByteCount];
+                for (BitCount = 0; BitCount < 8; BitCount++) {
+                    if ((CrcValue & 0x80) != 0) {
+                        CrcValue = (CrcValue << 1) ^ Polynom;
+                    } else {
+                        CrcValue = (CrcValue << 1);
+                    }
+                }
+            }
+        }
+        CrcValue ^= AdditionalByte;
+        for (BitCount = 0; BitCount < 8; BitCount++) {
+            if ((CrcValue & 0x80) != 0) {
+                CrcValue = (CrcValue << 1) ^ Polynom;
+            } else {
+                CrcValue = (CrcValue << 1);
             }
         }
         CrcValue = ~CrcValue;
@@ -7254,11 +7254,11 @@ This function calculates the CRC-checksum as follows:
         for (ByteCount = 0; ByteCount < CANMessage.Size; ByteCount++) {
             if (ByteCount != IdxCrcByte) { /* Das CRC-Byte aussparen */
                 for (BitCount = 0; BitCount < 8; BitCount++) {
-                    if (ReverseInput) 
+                    if (ReverseInput)
                         TestByte = (CANMessage.Data[ByteCount] & (1<<BitCount))<<(7-BitCount);
                     else
                         TestByte = (CANMessage.Data[ByteCount] & (1<<(7-BitCount)))<<BitCount;
-                        
+
                     if (TestByte != (CrcValue & 0x80))
                         CrcValue = (unsigned char)(((unsigned int)CrcValue * 2) ^ (unsigned int)Polynom);
                     else
@@ -7354,7 +7354,7 @@ Example:
 
     phys_value = phys (variable);
     phys (variable) = Phys_value;
-                
+
 
 ##### strcmp (String1, String2)
 
@@ -7529,7 +7529,7 @@ Variablenname = settings seperated by commas with the following meaning:
 | 7  | Step size interpretation for ± button (0 --> linear: x=x+step 1 --> procentage: x=x\*(1+step/100) )                                 |
 | 8  | Step size for ± button (as Float)                               |
 | 9  | Conversion type: 0 --> none, 1 --> Conversion formula, 2 --> Text replacement                                                     |
-| 10 | Conversion: when conversion type == 0 empty, when == 1 conversion formula, when == 2 text replacement description 
+| 10 | Conversion: when conversion type == 0 empty, when == 1 conversion formula, when == 2 text replacement description
 | 11 | Color settings (blue, green, red)                               |
 
 Always all settings must be specified.
@@ -7576,7 +7576,7 @@ Signal3=3,-,0,0,11,0,0,1.000000,0,,(0,0,0)
 | font.lfClipPrecision=1                    | Font setting                                 |
 | font.lfQuality=1      | Font setting                                 |
 | font.lfPitchAndFamily=34                   | Font setting                                 |
-  font.lfFaceName=Small Fonts | Font setting 
+  font.lfFaceName=Small Fonts | Font setting
 
 
 | **\[all text windows\]\***        | **contains a list of all text-windows**        |
@@ -7626,7 +7626,7 @@ Signal3=3,-,0,0,11,0,0,1.000000,0,,(0,0,0)
 | ow0=application 1   |                                                |
 
 
-| **\[application 1\]**    | Name of the application-window         | 
+| **\[application 1\]**    | Name of the application-window         |
 |---------------------|----------------------|
 | type=application    | it is an application-window            |
 | process = ProcessName.EXE             |  Process name for application-window
@@ -7660,12 +7660,12 @@ For Example:
     [CAN/Global]
       copy_buffer_type=2
 
-If the CAN file is a node definition (copy_buffer_type=2) all following section starts with \[CAN/Variante_9999\....\]. If the CAN file is a object definition (copy_buffer_type=3) all following section starts with \[CAN/Variante_9999/Object_9999\....\]. If the CAN file is a signal definition (copy_buffer_type=4) all following section starts with \[CAN/Variante_9999/Object_9999/Signal_9999\]. 
+If the CAN file is a node definition (copy_buffer_type=2) all following section starts with \[CAN/Variante_9999\....\]. If the CAN file is a object definition (copy_buffer_type=3) all following section starts with \[CAN/Variante_9999/Object_9999\....\]. If the CAN file is a signal definition (copy_buffer_type=4) all following section starts with \[CAN/Variante_9999/Object_9999/Signal_9999\].
 
 If the CAN file is a node definition (copy_buffer_type=2) the section \[CAN/Variante_9999\] describe the basic behaviour of one node.
 
-  
-  |Entry name        |must exist |    default value |   description 
+
+  |Entry name        |must exist |    default value |   description
   |------------------|:-------:|----------|------------------------------------
   name             |  yes     |          | The name of the node (variante).
   desc             |  no      |           |Description of the node. This is only for displaying inside the CAN config dialog.
@@ -7682,7 +7682,7 @@ If the CAN file is a node definition (copy_buffer_type=2) the section \[CAN/Vari
 |  ControlBbName    | no   |   PrefixId| This will define the CAN object control signal names inside the blackboard. If it not set or set to \'PrefixId\'. it will use following naming shema \"OpenXilEnv for HiL.CAN0.\[Id\]\". If it is set to \"NoPrefixObjName\" the naming shema would be \"\[object name\]\". If it is set to \"PrefixObjName\" the naming shema would be \"OpenXilEnv for HiL.CAN0.\[object name\]\". If it is set to \"NoPrefixVarObjName\" the naming shema is \"\[variante name\].\[object name\]\". If it is set to \"PrefixVarObjName\" the naming shema is \"OpenXilEnv for HiL.\[variante name\].\[object name\]\".
   can_object_count | yes  |   0       | This defines how many objects (receive and transmit) are inside this node. It must match the number of \[CAN/Variante_9999/Object_X\] sections.
 
-  
+
   : \[CAN/Varante_9999\]
 
 For example:
@@ -7700,7 +7700,7 @@ For example:
       ControlBbName=PrefixId
       can_object_count=2
 
-  
+
   Entry name             | must exist  |default value | description
   -----------------------| -------|---------| -----------------------------------------
   name                   | yes    |         | The name of the object.
@@ -7728,7 +7728,7 @@ For example:
   additional_variable\_# | no     |         | With this entrys you can define additional blackboard variables which are not part of the object signals. The \'#\' char is a value between 0 and 99, less are possible, but no gap are allowe. First is always the datatype \'BYTE, UBYTE, WORD, UWORD, DWORD, UDWORD, QWORD, UQWORD, FLOAT or DOUBLE are possible values. Followed by the variable name.
   equ_before\_#          | no     |         | With this entrys you can define additional equation which should be executed before the object are transmited. The \'#\' char is a value between 0 and 99, less are possible but no gap are allowed. The equation can include all buildin functions.
   equ_behind\_#          | no     |         | With this entrys you can define additional equation which should be executed after the object are transmited. The \'#\' char is a value between 0 and 99, less are possible but no gap are allowed. The equation can include all buildin functions.
-  
+
   : \[CAN/Varante_9999/Object_X\]
 
 An example of an object describtion of an exported CAN variant (node):
@@ -7753,7 +7753,7 @@ An example of an object describtion of an exported CAN variant (node):
       InitData=0x0
       signal_count=3
 
-  
+
   Entry name       | must exist |default value | description
   -----------------| ------|--------------| -----------------------------------------
   name             | yes   |              | The name of the Signal. This name would be used inside the blackboard.
@@ -7765,7 +7765,7 @@ An example of an object describtion of an exported CAN variant (node):
   offset           | no    |0.0           | Defines the offset for converting a signal if \'contype=mx+b\' or \'convtype=m(x+b)\'
   convstring       | yes   |              | Defines a convertion string if \'contype=curve\' for example \"10/0 100/10 255/15\". Or if \'convtype=equation\' for example: \"10\*#+100\". The \# char represent the signal to convert. The equation can include all buildin functions.
   startbit         | yes   |0             | Defines the object size it can be 1\...8 for a normal CAN object 1\...64 for a CAN FD object and 1\...1785 for a j1939-21 object.
-  bitsize          | yes   |8             | 
+  bitsize          | yes   |8             |
   byteorder        | yes   |intel         | Defines the byte order of the object. The possible values are \'intel\' or \'motorola\'. This byte order are are used for multiplexing objects. Each normal signal have it own byteorder definition.
   type             | no    |normal        | Defines the signal type. The value can be \'normal\' for a normal signal. Or \"mux\" for a multiplexed object. All \'mux\' signlas of one object with the same \'mux_startbit\' and \'mux_bit_size\' will be build a mux group. If \'type=mux_by\' the multiplexer must be defined with the \'mux_by_signal\' entry as a blackboard variable.
   sign             | yes   |unsigned      | Defines if the signal is signed or not.
@@ -7776,7 +7776,7 @@ An example of an object describtion of an exported CAN variant (node):
   signal_count     | yes   |0             | This defines how many signals are inside this object. It must match the number of \[CAN/Variante_9999/Object_X/Signal_Y\] sections.
   startvalue       | no    |0.0           | For an transmit object this is the init value of the object data befor any signal are placed inside.
   startvalue active| no    |yes           | if set to \'yes\' the startvalue will be used as init. value of the blackboard variable each time the CAn server is restarted, otherwise it will be ignored.
-  
+
 
   : \[CAN/Varante_9999/Object_X/Signal_Y\]
 
@@ -7820,7 +7820,7 @@ If an own model should be integrated, additional a Visual Studio Professional \>
 
 ###  12.2. <a name='DifferencesbetweenOpenXilEnvandOpenXilEnvforHiL'></a>Differences between OpenXilEnv and OpenXilEnv for HiL
 
--   No external processes possible. 
+-   No external processes possible.
 
 -   Todo
 
@@ -7902,7 +7902,7 @@ The CAN-object allocated to the variant are visible when the branch is opened. A
 
 -   Direction (read or write from the view of the PC)
 
--   Send-condition (for „write"-objects). A cyclic sending with the settings \"cycles\" and \"delay\" and a result-controlled sending can be defined through a condition as formula. The settings \"cycles\" and \"delay\" refer to the calling-rate of the CAN-server. E.g.: Scheduling periode = 1ms, calling time-slot of the CAN-server = 10, \"cycles\" and \"delay\" have the unit 10ms. For result-controlled sending via condition, the buildin-function. 
+-   Send-condition (for „write"-objects). A cyclic sending with the settings \"cycles\" and \"delay\" and a result-controlled sending can be defined through a condition as formula. The settings \"cycles\" and \"delay\" refer to the calling-rate of the CAN-server. E.g.: Scheduling periode = 1ms, calling time-slot of the CAN-server = 10, \"cycles\" and \"delay\" have the unit 10ms. For result-controlled sending via condition, the buildin-function.
 
 -   Type of CAN-bbjects (three types):
 
@@ -7963,7 +7963,7 @@ All settings are saved to the currend used INI-file.
 
 A blackboard variable is created for each CAN-object. The name consists of: „XilEnv.CAN" + Channel number + „." + Hex. Identifier.
 
-E.g.: OpenXilEnv for HiL.CAN0.0x620 complys with the CAN-object having the ID 0x620, that was sent or read through channel 0. This variable is a message-counter for receiving-objects and a on-/off-switch for send-objects (0 -\> no sending, 1-\> sending). 
+E.g.: OpenXilEnv for HiL.CAN0.0x620 complys with the CAN-object having the ID 0x620, that was sent or read through channel 0. This variable is a message-counter for receiving-objects and a on-/off-switch for send-objects (0 -\> no sending, 1-\> sending).
 
 ####  12.4.2. <a name='Insertdata-errorontheCAN-bus'></a>Insert data-error on the CAN-bus
 
