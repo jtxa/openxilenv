@@ -2672,7 +2672,9 @@ Header1...Header6: The following text is displayed as headline. Smaller accordin
 Creates a link in the report-file whereby **link** is the referenced document (e.g.:
 [\\\\homepage.html](file:////c:/user/homepage.html)) and **text** is the displayed text.
 
-##### REPORT_RAW *Html-Text*
+##### REPORT_RAW
+
+    REPORT_RAW *Html-Text*
 
 This instruction writes all following characters into the report.html-file directly until the end of the line. A line break can be included by the instruction REPORT_RAW_NL.
 
