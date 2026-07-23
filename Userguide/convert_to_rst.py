@@ -93,6 +93,41 @@ def unescape_md_code(text):
     return text
 
 
+FUNCTION_NAMES = set()
+COMMAND_NAMES = set()
+
+
+def apply_cross_references(text):
+    """Replace whole-word exact-case function/command names with roles.
+
+    Skips content inside inline code (double backticks) and image directives.
+    Sorts by length descending so longer names match first.
+    """
+    all_names = [(n, 'function') for n in FUNCTION_NAMES] + \
+                [(n, 'script_command') for n in COMMAND_NAMES]
+    if not all_names:
+        return text
+    all_names.sort(key=lambda x: -len(x[0]))
+
+    parts = re.split(r'(``[^``]+``)', text)
+    result = []
+    for idx, part in enumerate(parts):
+        if idx % 2 == 1:
+            result.append(part)
+            continue
+        if part.startswith('.. '):
+            result.append(part)
+            continue
+        for name, role in all_names:
+            part = re.sub(
+                r'(?<!\w)' + re.escape(name) + r'(?!\w)',
+                f':{role}:`{name}`',
+                part
+            )
+        result.append(part)
+    return ''.join(result)
+
+
 def md_inline(text):
     """Convert markdown inline formatting to RST."""
     text = strip_anchors(text)
@@ -292,6 +327,7 @@ def md_to_rst_lines(lines, heading_offset=0, skip_first_heading=False):
         # Escape RST special chars in body text
         text = md_inline(stripped)
         text = escape_rst_inline(text)
+        text = apply_cross_references(text)
         out.append(text)
         i += 1
     return out
@@ -578,6 +614,63 @@ os.makedirs(ch9_dir, exist_ok=True)
 os.makedirs(ch10_dir, exist_ok=True)
 
 # ============================================================
+# Pre-pass: extract function & command names for cross-referencing
+# ============================================================
+
+# --- Command names from ch9 #### in section 9.2.1 ---
+def _pre_extract_ch9_commands():
+    """Extract command names from ch9 ##### headings in section 9.2.1."""
+    ch9_start, ch9_end = CHAPTERS[9]
+    ch9_pre = all_lines[ch9_start - 1:ch9_end]
+    hds = []
+    for idx, line in enumerate(ch9_pre):
+        h = get_heading(line)
+        if h:
+            hds.append((idx, h[0], h[1]))
+    idx1 = idx2 = None
+    for idx, level, title in hds:
+        if level == 4 and '9.2.1' in title:
+            idx1 = idx
+        if level == 4 and '9.2.2' in title:
+            idx2 = idx
+    cmds = []
+    cur_title = None
+    inside = False
+    for idx, line in enumerate(ch9_pre):
+        h = get_heading(line)
+        if h and h[0] == 4 and idx1 is not None and idx == idx1:
+            inside = True
+            continue
+        if h and h[0] == 4 and idx2 is not None and idx == idx2:
+            break
+        if inside and h and h[0] == 5:
+            cur_title = h[1]
+            clean = strip_numbering(cur_title)
+            COMMAND_NAMES.add(extract_cmd_name(clean))
+
+_pre_extract_ch9_commands()
+
+# --- Function names from ch10 #### headings ---
+def _pre_extract_ch10_functions():
+    ch10_start, ch10_end = CHAPTERS[10]
+    ch10_pre = all_lines[ch10_start - 1:ch10_end]
+    found_first_h3 = False
+    for line in ch10_pre:
+        h = get_heading(line)
+        if h is None:
+            continue
+        if h[0] == 3 and not found_first_h3:
+            found_first_h3 = True
+            continue
+        if h[0] == 4 and found_first_h3:
+            clean = strip_numbering(h[1])
+            FUNCTION_NAMES.add(clean)
+
+_pre_extract_ch10_functions()
+
+print(f"Cross-reference names: {len(COMMAND_NAMES)} commands, {len(FUNCTION_NAMES)} functions")
+
+# ============================================================
 # Chapters 2-8, 11-12: single-file chapters
 # ============================================================
 CH_NAMES = {
@@ -691,6 +784,12 @@ for idx, line in enumerate(ch9_lines):
 if current_title is not None:
     script_commands.append((current_title, current_lines))
 
+# Populate global command names for cross-referencing (before any md_to_rst_lines calls)
+for title, _ in script_commands:
+    clean = strip_numbering(title)
+    cmd_name = extract_cmd_name(clean)
+    COMMAND_NAMES.add(cmd_name)
+
 # Write each script command file
 cmd_stems = []
 for title, cmd_lines in script_commands:
@@ -772,6 +871,11 @@ for idx, line in enumerate(ch10_lines):
 
 if current_title is not None:
     functions.append((current_title, current_lines))
+
+# Populate global function names for cross-referencing (before any md_to_rst_lines calls)
+for title, _ in functions:
+    clean = strip_numbering(title)
+    FUNCTION_NAMES.add(clean)
 
 # Write each function file
 func_stems = []
